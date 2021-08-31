@@ -33,20 +33,20 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.6.0;\n\ninterface IERC1654\n{\n\tfunction isValidSignature(bytes32 hash, bytes calldata signature) external view returns (bytes4 magicValue);\n}\n",
-  "sourcePath": "@iexec/solidity/contracts/ERC1654/IERC1654.sol",
+  "sourcePath": "@iexec\\solidity\\contracts\\ERC1654\\IERC1654.sol",
   "ast": {
     "absolutePath": "@iexec/solidity/contracts/ERC1654/IERC1654.sol",
     "exportedSymbols": {
       "IERC1654": [
-        13124
+        1596
       ]
     },
-    "id": 13125,
+    "id": 1597,
     "license": null,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13114,
+        "id": 1586,
         "literals": [
           "solidity",
           "^",
@@ -54,7 +54,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:74"
+        "src": "0:23:15"
       },
       {
         "abstract": false,
@@ -63,9 +63,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 13124,
+        "id": 1596,
         "linearizedBaseContracts": [
-          13124
+          1596
         ],
         "name": "IERC1654",
         "nodeType": "ContractDefinition",
@@ -74,7 +74,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "1626ba7e",
-            "id": 13123,
+            "id": 1595,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -82,18 +82,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 13119,
+              "id": 1591,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13116,
+                  "id": 1588,
                   "mutability": "mutable",
                   "name": "hash",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 13123,
-                  "src": "73:12:74",
+                  "scope": 1595,
+                  "src": "73:12:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -101,10 +101,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 13115,
+                    "id": 1587,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "73:7:74",
+                    "src": "73:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -115,13 +115,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 13118,
+                  "id": 1590,
                   "mutability": "mutable",
                   "name": "signature",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 13123,
-                  "src": "87:24:74",
+                  "scope": 1595,
+                  "src": "87:24:15",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -129,10 +129,10 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 13117,
+                    "id": 1589,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "87:5:74",
+                    "src": "87:5:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -142,21 +142,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "72:40:74"
+              "src": "72:40:15"
             },
             "returnParameters": {
-              "id": 13122,
+              "id": 1594,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13121,
+                  "id": 1593,
                   "mutability": "mutable",
                   "name": "magicValue",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 13123,
-                  "src": "136:17:74",
+                  "scope": 1595,
+                  "src": "136:17:15",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -164,10 +164,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 13120,
+                    "id": 1592,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "136:6:74",
+                    "src": "136:6:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -177,186 +177,203 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "135:19:74"
+              "src": "135:19:15"
             },
-            "scope": 13124,
-            "src": "47:108:74",
+            "scope": 1596,
+            "src": "47:108:15",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 13125,
-        "src": "25:132:74"
+        "scope": 1597,
+        "src": "25:132:15"
       }
     ],
-    "src": "0:158:74"
+    "src": "0:158:15"
   },
   "legacyAST": {
-    "absolutePath": "@iexec/solidity/contracts/ERC1654/IERC1654.sol",
-    "exportedSymbols": {
-      "IERC1654": [
-        13124
-      ]
+    "attributes": {
+      "absolutePath": "@iexec/solidity/contracts/ERC1654/IERC1654.sol",
+      "exportedSymbols": {
+        "IERC1654": [
+          1596
+        ]
+      },
+      "license": null
     },
-    "id": 13125,
-    "license": null,
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
-        "id": 13114,
-        "literals": [
-          "solidity",
-          "^",
-          "0.6",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "0:23:74"
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 1586,
+        "name": "PragmaDirective",
+        "src": "0:23:15"
       },
       {
-        "abstract": false,
-        "baseContracts": [],
-        "contractDependencies": [],
-        "contractKind": "interface",
-        "documentation": null,
-        "fullyImplemented": false,
-        "id": 13124,
-        "linearizedBaseContracts": [
-          13124
-        ],
-        "name": "IERC1654",
-        "nodeType": "ContractDefinition",
-        "nodes": [
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            1596
+          ],
+          "name": "IERC1654",
+          "scope": 1597
+        },
+        "children": [
           {
-            "body": null,
-            "documentation": null,
-            "functionSelector": "1626ba7e",
-            "id": 13123,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "isValidSignature",
-            "nodeType": "FunctionDefinition",
-            "overrides": null,
-            "parameters": {
-              "id": 13119,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 13116,
-                  "mutability": "mutable",
-                  "name": "hash",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 13123,
-                  "src": "73:12:74",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes32",
-                    "typeString": "bytes32"
-                  },
-                  "typeName": {
-                    "id": 13115,
-                    "name": "bytes32",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "73:7:74",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes32",
-                      "typeString": "bytes32"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 13118,
-                  "mutability": "mutable",
-                  "name": "signature",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 13123,
-                  "src": "87:24:74",
-                  "stateVariable": false,
-                  "storageLocation": "calldata",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes_calldata_ptr",
-                    "typeString": "bytes"
-                  },
-                  "typeName": {
-                    "id": 13117,
-                    "name": "bytes",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "87:5:74",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes_storage_ptr",
-                      "typeString": "bytes"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "1626ba7e",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
               ],
-              "src": "72:40:74"
+              "name": "isValidSignature",
+              "overrides": null,
+              "scope": 1596,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
             },
-            "returnParameters": {
-              "id": 13122,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 13121,
-                  "mutability": "mutable",
-                  "name": "magicValue",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 13123,
-                  "src": "136:17:74",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bytes4",
-                    "typeString": "bytes4"
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "hash",
+                      "overrides": null,
+                      "scope": 1595,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 1587,
+                        "name": "ElementaryTypeName",
+                        "src": "73:7:15"
+                      }
+                    ],
+                    "id": 1588,
+                    "name": "VariableDeclaration",
+                    "src": "73:12:15"
                   },
-                  "typeName": {
-                    "id": 13120,
-                    "name": "bytes4",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "136:6:74",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bytes4",
-                      "typeString": "bytes4"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "135:19:74"
-            },
-            "scope": 13124,
-            "src": "47:108:74",
-            "stateMutability": "view",
-            "virtual": false,
-            "visibility": "external"
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "signature",
+                      "overrides": null,
+                      "scope": 1595,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "bytes",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes"
+                        },
+                        "id": 1589,
+                        "name": "ElementaryTypeName",
+                        "src": "87:5:15"
+                      }
+                    ],
+                    "id": 1590,
+                    "name": "VariableDeclaration",
+                    "src": "87:24:15"
+                  }
+                ],
+                "id": 1591,
+                "name": "ParameterList",
+                "src": "72:40:15"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "magicValue",
+                      "overrides": null,
+                      "scope": 1595,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes4",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes4",
+                          "type": "bytes4"
+                        },
+                        "id": 1592,
+                        "name": "ElementaryTypeName",
+                        "src": "136:6:15"
+                      }
+                    ],
+                    "id": 1593,
+                    "name": "VariableDeclaration",
+                    "src": "136:17:15"
+                  }
+                ],
+                "id": 1594,
+                "name": "ParameterList",
+                "src": "135:19:15"
+              }
+            ],
+            "id": 1595,
+            "name": "FunctionDefinition",
+            "src": "47:108:15"
           }
         ],
-        "scope": 13125,
-        "src": "25:132:74"
+        "id": 1596,
+        "name": "ContractDefinition",
+        "src": "25:132:15"
       }
     ],
-    "src": "0:158:74"
+    "id": 1597,
+    "name": "SourceUnit",
+    "src": "0:158:15"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-04T15:01:35.893Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-08-31T16:41:48.481Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

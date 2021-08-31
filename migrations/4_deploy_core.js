@@ -47,6 +47,7 @@ var IexecOrderManagement    = artifacts.require('IexecOrderManagementDelegate')
 var IexecPoco1              = artifacts.require('IexecPoco1Delegate')
 var IexecPoco1KYC           = artifacts.require('IexecPoco1DelegateKYC')
 var IexecPoco2              = artifacts.require('IexecPoco2Delegate')
+var IexecPoco3              = artifacts.require('IexecPoco3Delegate')
 var IexecPoco2KYC           = artifacts.require('IexecPoco2DelegateKYC')
 var IexecRelay              = artifacts.require('IexecRelayDelegate')
 var ENSIntegration          = artifacts.require('ENSIntegrationDelegate')
@@ -132,6 +133,7 @@ module.exports = async function(deployer, network, accounts)
 		IexecOrderManagement,
 		deploymentOptions.v5.usekyc ? IexecPoco1KYC : IexecPoco1,
 		deploymentOptions.v5.usekyc ? IexecPoco2KYC : IexecPoco2,
+		IexecPoco3,
 		IexecRelay,
 		ENSIntegration,
 		chainid != 1 && IexecMaintenanceExtra,

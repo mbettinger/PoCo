@@ -19,6 +19,7 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
+import "../../libs/IexecLibCore_v5.sol";
 
 interface IexecPoco2
 {

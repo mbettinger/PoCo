@@ -2457,6 +2457,169 @@
     {
       "inputs": [
         {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chain",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "sourceHub",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "pointer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "price",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct IexecLibCore_v5.Resource",
+              "name": "app",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "pointer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "price",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct IexecLibCore_v5.Resource",
+              "name": "dataset",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "pointer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "owner",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "price",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct IexecLibCore_v5.Resource",
+              "name": "workerpool",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "trust",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "tag",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct IexecLibCore_v5.ProxyDeal",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "enum IexecLibCore_v5.TaskStatusEnum",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "dealid",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint256",
+              "name": "idx",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "consensusValue",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "address[]",
+              "name": "contributors",
+              "type": "address[]"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "resultDigest",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "results",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "resultsCallback",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IexecLibCore_v5.ProxyTask",
+          "name": "",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "proxyInitContribAndFinalize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
           "internalType": "address",
           "name": "",
           "type": "address"
@@ -3627,27 +3790,27 @@
       "type": "receive"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"AccurateContribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"apporder\",\"type\":\"tuple\"}],\"name\":\"BroadcastAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"datasetorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"requestorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"workerpoolorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"catid\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"workClockTimeRef\",\"type\":\"uint256\"}],\"name\":\"CreateCategory\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"FaultyContribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Lock\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"}],\"name\":\"OrdersMatched\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"ref\",\"type\":\"bytes32\"}],\"name\":\"Reward\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"}],\"name\":\"SchedulerNotice\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"ref\",\"type\":\"bytes32\"}],\"name\":\"Seize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"}],\"name\":\"SignedAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"}],\"name\":\"SignedDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"}],\"name\":\"SignedRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"}],\"name\":\"SignedWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"TaskClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"consensus\",\"type\":\"bytes32\"}],\"name\":\"TaskConsensus\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"TaskContribute\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"results\",\"type\":\"bytes\"}],\"name\":\"TaskFinalize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"}],\"name\":\"TaskInitialize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"TaskReopen\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"digest\",\"type\":\"bytes32\"}],\"name\":\"TaskReveal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Unlock\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"appregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"approveAndCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastAppOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastDatasetOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastRequestOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastWorkerpoolOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"callbackgas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"name\":\"claimArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"configure\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"contribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"contributeAndFinalize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contribution_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"countCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"createCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"datasetregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"depositFor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"name\":\"depositForArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"domain\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"version\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"verifyingContract\",\"type\":\"address\"}],\"internalType\":\"struct IexecLibOrders_v5.EIP712Domain\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eip712domain_separator\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"final_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"finalize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"frozenOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"groupmember_purpose\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"importScore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"name\":\"initializeAndClaimArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"name\":\"initializeArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_address\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_min\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageAppOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageDatasetOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageRequestOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageWorkerpoolOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"matchOrders\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"receiveApproval\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"recover\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"reopen\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"resultFor\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"reveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reveal_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"setCallbackGas\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"ens\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"setName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"setTeeBroker\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"teebroker\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateDomainSeparator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"verifyPresignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"verifyPresignatureOrSignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"verifySignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewAccount\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"stake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"locked\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Account\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"viewAccountABILegacy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"viewCategory\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"workClockTimeRef\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Category\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_catid\",\"type\":\"uint256\"}],\"name\":\"viewCategoryABILegacy\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewConfigABILegacy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewConsumed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewContribution\",\"outputs\":[{\"components\":[{\"internalType\":\"enum IexecLibCore_v5.ContributionStatusEnum\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"resultHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"resultSeal\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"enclaveChallenge\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"weight\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Contribution\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_taskid\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_worker\",\"type\":\"address\"}],\"name\":\"viewContributionABILegacy\",\"outputs\":[{\"internalType\":\"enum IexecLibCore_v5.ContributionStatusEnum\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewDeal\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"app\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"dataset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"workerpool\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"botFirst\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"botSize\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"workerStake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"schedulerRewardRatio\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Deal\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewDealABILegacy_pt1\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewDealABILegacy_pt2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewPresigned\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewScore\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewTask\",\"outputs\":[{\"components\":[{\"internalType\":\"enum IexecLibCore_v5.TaskStatusEnum\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"idx\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timeref\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contributionDeadline\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealDeadline\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"finalDeadline\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"consensusValue\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"revealCounter\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"winnerCounter\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"contributors\",\"type\":\"address[]\"},{\"internalType\":\"bytes32\",\"name\":\"resultDigest\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"results\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"resultsTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"resultsCallback\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibCore_v5.Task\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_taskid\",\"type\":\"bytes32\"}],\"name\":\"viewTaskABILegacy\",\"outputs\":[{\"internalType\":\"enum IexecLibCore_v5.TaskStatusEnum\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"withdrawTo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"workerpool_stake_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"workerpoolregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/IexecInterfaceNativeABILegacy.sol\":\"IexecInterfaceNativeABILegacy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/IexecInterfaceNativeABILegacy.sol\":{\"keccak256\":\"0xd54eb7d7ea6c303f5c51710e7995b9f18011a1d9ed3aa81cbb9077a209bb641a\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://57df985a88a60c6a582976891c087ba556332ab511d76d2bbe7f1600414ec42e\",\"dweb:/ipfs/QmTVYD33EpB85FT2mxp1paB4jojqDPekTXbKyxm3SbU1Cw\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/libs/IexecLibCore_v5.sol\":{\"keccak256\":\"0x7fab9c16493884c64cdd31627c5d71389de785becf611b738343d75f7495471d\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://3e243796363e7d4cd249b432a2511cdb49759ed7d2e8bd73817f09ff60ff919c\",\"dweb:/ipfs/Qmeat95AtRviDFcJ3W3aBZmH51aHReX9RLnPZ3Gof3FnzW\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/libs/IexecLibOrders_v5.sol\":{\"keccak256\":\"0x430eaa82ce8d43771c8a84af5113e31de79490d5b9d561ef90034bdc5a2a993b\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://65cb57ac25afa5b6e0811290866aace3b013fe67aa82c5e72b6bb00d50e9f28a\",\"dweb:/ipfs/QmTTNTASsnM8db9vTjkbxz5kiNtqVxNrjwxkvVEmoHuMj9\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol\":{\"keccak256\":\"0x42793f9e2a355f6141d35e020ab171c765432d01c5985eaa8a4836a59b425d45\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://0d2d6682dd3cc397377d58c78333642a89d93ef8253fd078bedb98c42ffd823e\",\"dweb:/ipfs/QmRhHceCaNuvkhTQEE7wExfNJ9xLHasLiNrYmHJ6zGU5ye\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IOwnable.sol\":{\"keccak256\":\"0x0fc7a7e8b0369534d786936faa191e1009d52546663f41fb38a902417de86013\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://f4e507d9a833e7c9e02cb58b7abcc7042d13301f6f4a171ba6b18f29e49424b6\",\"dweb:/ipfs/QmbtStaZGTFtdHUXETXNhzRqYYHp1PWxNbnZbQiJwig9V2\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessors.sol\":{\"keccak256\":\"0x8fd873d47d70a0627c3b8c0ad7d07d9f812c88bf579d6661accf773c6c7d573e\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://b3178bf6f47bcfca7514a1a88188c5243de38f3fb3d8608b5769bc9c1629009f\",\"dweb:/ipfs/QmUVYe5uu5NTSZywGVbasmsHL5y32v7F7w5iuXgyzpWCEj\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessorsABILegacy.sol\":{\"keccak256\":\"0xed2b960274f874bcf7d158e48743ec35db7633dd124b3a660a5b1653f59518ad\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://5320f4611eaaf8eb7378592f70d5c5645366705acf2548664254b90ca8e44f78\",\"dweb:/ipfs/QmY6f9mukn7zUZWnTxHoVoPyXQ5d2VS3Q9NrubRzSyoQxu\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecCategoryManager.sol\":{\"keccak256\":\"0xefb1eae4d1089857cd7123cd1ed96495c591f9853335687591c72c8dd6ebaafc\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://bad0e1a8935d0319b7322d592fef1c2147486960375c53712ea789686b4367f2\",\"dweb:/ipfs/QmVxDamvZMxHGc6rvrgvUj6m3HxZFkr92WLpgQruYQzk7m\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecERC20.sol\":{\"keccak256\":\"0x48a3d6b87e89223fc9e3858342fabd761b55883cdbbcb8b95e0f87c92de758b0\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://e1e033e1509c4d7560b214f24301a1748033697c662d2ef2d25ff2e4b0dc1e0e\",\"dweb:/ipfs/Qmaa1XduJbBDEXn9kd1ZqWo8TBi5aiafUFpkFMXQqz3by7\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecEscrowNative.sol\":{\"keccak256\":\"0x1da6ba549a888426896d8776ec80cf7f3254e5f7e9883d513bf7fd5a5097b91a\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://2834ec722717d8f6ffaba683517c985060f089c648f8c723a13d6e7a50626754\",\"dweb:/ipfs/Qmey9FX2XuxnWxW5DEn3e1D5mRKYWNsa1a5YLhwzq6so4L\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecMaintenance.sol\":{\"keccak256\":\"0x6f0c9c34b2ba94a932826c66c3189cc55a5237ed985ef7a969180ff6e8eb5618\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://11f45bf202dd54d9ceae73978b5a75ed05219ac83151df0cae87fb42efd6a6f0\",\"dweb:/ipfs/QmaZmEsGWJwbqyWgrMv87qxPpzUucukv9rm9VnZ4e5gLs7\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecOrderManagement.sol\":{\"keccak256\":\"0xb17cfba6292d0c9daf1b30d4e10b63ae42ab2618d07558a27783ca7aa753b9d8\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://a3f3328c7cfaecc2c5fd41b80d356faed3bb1e33ffdfa66dcf89a586d91186e3\",\"dweb:/ipfs/QmPJtetPtdWM6PbpQbyLLc6iDnjDa5e27KmAWnMZ4hyzzN\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco1.sol\":{\"keccak256\":\"0xbf0048c4a61d82d5dc6fec0f1b34616cc8c4d3cc8288ec74cfd22f504726738d\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://9263644264f543404472038bfe527494859ca63788ad26b7266353c91da73e07\",\"dweb:/ipfs/QmW7fuTjbq6zUk2cgLKwHrAQangKirC2wbLwQCbj52UdJw\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco2.sol\":{\"keccak256\":\"0x37a8fbf46336d6eb8bdcfb68dc26611197539fbb1ee1d9ca5e36d97004858122\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://c474b6dfb549a06e0548d5dc74aaf93ca622b52e45a06bdeff67482ab4218369\",\"dweb:/ipfs/QmdUSHD4wyvsdgeymZ5wfVWCJbZ4qWALH6st4JomdGFiQN\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecRelay.sol\":{\"keccak256\":\"0x1447352e58f33bb27b3aba10b1a3d64ca3da8b5a603594d0e2e1709310bab0e6\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://4778960a020597d692580432717f68de4596b9215a7b9857193d1d6ba1e3c628\",\"dweb:/ipfs/QmeBALzFkK7c8HeQCCjbaUmcvwwrZ5CrpxdLBzaHV7BWWV\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecTokenSpender.sol\":{\"keccak256\":\"0xd914d8f8a6ebf78bdb876c2243e90c6bfffcf280e3760affa57afd7e618cd420\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://1807226c064ecf6819c50440342aaaab2833209193c6307f4ab42567d54d329c\",\"dweb:/ipfs/QmSBVCBo2GqWKqW98pw3mXwzXY7iupoUTnDytXAVyTi8T5\"]},\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/registries/IRegistry.sol\":{\"keccak256\":\"0xc735f7764e312ea161551bc1a2749820928b1bf80c4aeb2f528a2f4a498078cd\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://7dbefb9d9bec9b56f694d2ee6dc0a44b341c027c0d392534b457867208f019b9\",\"dweb:/ipfs/QmSiSkhgUcAGscopDoRtGnHiWAbxNwBf9ZV8nnVYoWqZ8Z\"]},\"@iexec/solidity/contracts/ERC1154/IERC1154.sol\":{\"keccak256\":\"0x542ed19435ffdf4e5f1fbf57f87d26883e04cf96c21c69f7eb691e46c0f6ee5d\",\"urls\":[\"bzz-raw://d7744c331a362162870775cdea560f2db4da1ae6123ca05aba825a8850da37a0\",\"dweb:/ipfs/Qmf3FgPtiUiCA4Mnb9LpGrUciub9RwxniGSRPriRM4hVpc\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xfa152b6e88a1dc50780e8f1580426dc23ad2e1e2c2f086a088adf206a202f453\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5127b264994adab88fae419b1c493efc5acd07134c19ee5c0397e50018291ebf\",\"dweb:/ipfs/QmWwJZVhvdmvUCdimbb6R2Jiu59zjPqm6XTMchM6LaEHAp\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x227bafd3e165b13f5d98c42a44376e48d41f4a265db8803f2707faaeae9659aa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9aa7959a30871669ce46172cd117b084b607d602d9ce695ce79005582b0b69b\",\"dweb:/ipfs/QmXZUWeLXmArQinHL4RnacJLT22GvCExqREYM6pHLX7CX9\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0x3636662804cd8f474536b2875a9038a4c3fb91879f1bbff48af5c3f140fcd2f0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9fab8521263fa581544000cb57335a3f2e6bcdfbb5579d3ceaa5acf741c67c4f\",\"dweb:/ipfs/QmZfXnMom7JSNtfyie5yGPN1SUC4SmHbz4ScVBH88URmA7\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"AccurateContribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"apporder\",\"type\":\"tuple\"}],\"name\":\"BroadcastAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"datasetorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"requestorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"indexed\":false,\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"workerpoolorder\",\"type\":\"tuple\"}],\"name\":\"BroadcastWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"}],\"name\":\"ClosedWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"catid\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"workClockTimeRef\",\"type\":\"uint256\"}],\"name\":\"CreateCategory\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"FaultyContribution\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Lock\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"}],\"name\":\"OrdersMatched\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"ref\",\"type\":\"bytes32\"}],\"name\":\"Reward\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"}],\"name\":\"SchedulerNotice\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"ref\",\"type\":\"bytes32\"}],\"name\":\"Seize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"appHash\",\"type\":\"bytes32\"}],\"name\":\"SignedAppOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"datasetHash\",\"type\":\"bytes32\"}],\"name\":\"SignedDatasetOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"requestHash\",\"type\":\"bytes32\"}],\"name\":\"SignedRequestOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"workerpoolHash\",\"type\":\"bytes32\"}],\"name\":\"SignedWorkerpoolOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"TaskClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"consensus\",\"type\":\"bytes32\"}],\"name\":\"TaskConsensus\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"TaskContribute\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"results\",\"type\":\"bytes\"}],\"name\":\"TaskFinalize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"}],\"name\":\"TaskInitialize\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"}],\"name\":\"TaskReopen\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"taskid\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"worker\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"digest\",\"type\":\"bytes32\"}],\"name\":\"TaskReveal\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Unlock\",\"type\":\"event\"},{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"appregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"approveAndCall\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastAppOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastDatasetOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastRequestOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"broadcastWorkerpoolOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"callbackgas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"}],\"name\":\"claimArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"configure\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"contribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"contributeAndFinalize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"contribution_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"countCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"createCategory\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"datasetregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"depositFor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"name\":\"depositForArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"domain\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"version\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"verifyingContract\",\"type\":\"address\"}],\"internalType\":\"struct IexecLibOrders_v5.EIP712Domain\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"eip712domain_separator\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"final_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"finalize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"frozenOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"groupmember_purpose\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"importScore\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"name\":\"initializeAndClaimArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"name\":\"initializeArray\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_address\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_min\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"kitty_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageAppOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageDatasetOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageRequestOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"enum IexecLibOrders_v5.OrderOperationEnum\",\"name\":\"operation\",\"type\":\"uint8\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrderOperation\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"manageWorkerpoolOrder\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.AppOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"workerpoolrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.DatasetOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolprice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"apprestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"datasetrestrict\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"requesterrestrict\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.WorkerpoolOrder\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"app\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"appmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"dataset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"datasetmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"workerpool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"workerpoolmaxprice\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"volume\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"sign\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibOrders_v5.RequestOrder\",\"name\":\"\",\"type\":\"tuple\"}],\"name\":\"matchOrders\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"chain\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"sourceHub\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"app\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"dataset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"workerpool\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"}],\"internalType\":\"struct IexecLibCore_v5.ProxyDeal\",\"name\":\"\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"enum IexecLibCore_v5.TaskStatusEnum\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"idx\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"consensusValue\",\"type\":\"bytes32\"},{\"internalType\":\"address[]\",\"name\":\"contributors\",\"type\":\"address[]\"},{\"internalType\":\"bytes32\",\"name\":\"resultDigest\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"results\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"resultsCallback\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibCore_v5.ProxyTask\",\"name\":\"\",\"type\":\"tuple\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"proxyInitContribAndFinalize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"receiveApproval\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"recover\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"reopen\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"resultFor\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"reveal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"reveal_deadline_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"setCallbackGas\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"ens\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"setName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"setTeeBroker\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"teebroker\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"updateDomainSeparator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"verifyPresignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"verifyPresignatureOrSignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"name\":\"verifySignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewAccount\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"stake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"locked\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Account\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"viewAccountABILegacy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"viewCategory\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"workClockTimeRef\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Category\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_catid\",\"type\":\"uint256\"}],\"name\":\"viewCategoryABILegacy\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewConfigABILegacy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewConsumed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewContribution\",\"outputs\":[{\"components\":[{\"internalType\":\"enum IexecLibCore_v5.ContributionStatusEnum\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"resultHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"resultSeal\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"enclaveChallenge\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"weight\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Contribution\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_taskid\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"_worker\",\"type\":\"address\"}],\"name\":\"viewContributionABILegacy\",\"outputs\":[{\"internalType\":\"enum IexecLibCore_v5.ContributionStatusEnum\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewDeal\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"app\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"dataset\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"pointer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Resource\",\"name\":\"workerpool\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"trust\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"category\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"tag\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"requester\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"beneficiary\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"callback\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"params\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"startTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"botFirst\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"botSize\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"workerStake\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"schedulerRewardRatio\",\"type\":\"uint256\"}],\"internalType\":\"struct IexecLibCore_v5.Deal\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewDealABILegacy_pt1\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_id\",\"type\":\"bytes32\"}],\"name\":\"viewDealABILegacy_pt2\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewPresigned\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"viewScore\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"viewTask\",\"outputs\":[{\"components\":[{\"internalType\":\"enum IexecLibCore_v5.TaskStatusEnum\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"dealid\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"idx\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timeref\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"contributionDeadline\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"revealDeadline\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"finalDeadline\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"consensusValue\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"revealCounter\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"winnerCounter\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"contributors\",\"type\":\"address[]\"},{\"internalType\":\"bytes32\",\"name\":\"resultDigest\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"results\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"resultsTimestamp\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"resultsCallback\",\"type\":\"bytes\"}],\"internalType\":\"struct IexecLibCore_v5.Task\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_taskid\",\"type\":\"bytes32\"}],\"name\":\"viewTaskABILegacy\",\"outputs\":[{\"internalType\":\"enum IexecLibCore_v5.TaskStatusEnum\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"withdrawTo\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"workerpool_stake_ratio\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"workerpoolregistry\",\"outputs\":[{\"internalType\":\"contract IRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IexecInterfaceNativeABILegacy.sol\":\"IexecInterfaceNativeABILegacy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@iexec/solidity/contracts/ERC1154/IERC1154.sol\":{\"keccak256\":\"0x542ed19435ffdf4e5f1fbf57f87d26883e04cf96c21c69f7eb691e46c0f6ee5d\",\"urls\":[\"bzz-raw://d7744c331a362162870775cdea560f2db4da1ae6123ca05aba825a8850da37a0\",\"dweb:/ipfs/Qmf3FgPtiUiCA4Mnb9LpGrUciub9RwxniGSRPriRM4hVpc\"]},\"@openzeppelin/contracts/introspection/IERC165.sol\":{\"keccak256\":\"0xf70bc25d981e4ec9673a995ad2995d5d493ea188d3d8f388bba9c227ce09fb82\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd970f51e3a77790c2f02b5b1759827c3b897c3d98c407b3631e8af32e3dc93c\",\"dweb:/ipfs/QmPF85Amgbqjk3SNZKsPCsqCw8JfwYEPMnnhvMJUyX58je\"]},\"@openzeppelin/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5a9f5c29bd7cf0b345e14d97d5f685f68c07e1e5bfdd47e5bcec045e81b0b6ac\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://321cbaa1412fc8d013d8ad3fb5f98c0db7401ddacfb09b70828ea2cebe37397e\",\"dweb:/ipfs/Qmd3Hoc71w6rmxAR6A5VKW9at677VP1L5KDcJnyvu4ksu3\"]},\"@openzeppelin/contracts/token/ERC721/IERC721Enumerable.sol\":{\"keccak256\":\"0xe6bd1b1218338b6f9fe17776f48623b4ac3d8a40405f74a44bc23c00abe2ca13\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0c354c3f6e9c487759aa7869be4fba68e0b2efc777b514d289c4cbd3ff8f7e1a\",\"dweb:/ipfs/QmdF9LcSYVmiUCL7JxLEYmSLrjga6zJsujfi6sgEJD4M1z\"]},\"project:/contracts/IexecInterfaceNativeABILegacy.sol\":{\"keccak256\":\"0x4f832ac47341d70094e756c405ba8d81efd01f0713709b0716fac9e0010846b8\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://67c02ac21398da6c3c0896982e8baeaa1622b651a318b462e3de980b32b5696b\",\"dweb:/ipfs/QmbxBdAJcES6LyKYgshc2oDGASoRtFoxFth2qy1KKteJEi\"]},\"project:/contracts/libs/IexecLibCore_v5.sol\":{\"keccak256\":\"0x1ffae88c153cf06b5ab4533deaac843fa798acebc506b80e6fbe59f103991ccd\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://16dbf8e53c868982aaec2dc66108f64d1d288b8e048dbc673eb053e637d98ade\",\"dweb:/ipfs/QmQNu11tDmtdcNQrdy7uTNnYY5svC4UsRf6yAFyD5cSXYV\"]},\"project:/contracts/libs/IexecLibOrders_v5.sol\":{\"keccak256\":\"0xb977e9409aac10e66fe523f3ee7d91810d0db89bad36d9d198252e6dffcc7011\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://5f7c2890bcf19a27c857d89a305ea98410f72e7276335ed7c08bd0c164533106\",\"dweb:/ipfs/QmZFsqgqV4DoCZouTyfgzc1WRdRwv7UeDwFNFkTWfzxQpg\"]},\"project:/contracts/modules/interfaces/ENSIntegration.sol\":{\"keccak256\":\"0x8ea27638ccffa4c068d77190552f68ab138ca88e99e4f3b174f57c9219484c6d\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://6784f8b6aaefc0cceef45ce027b64c986e1dd22a67830c9a181c50b847c85c19\",\"dweb:/ipfs/QmNWywT2VdMU5NnoaDzyN5HeaUJHfqP6Rnh6KcJm9asLnJ\"]},\"project:/contracts/modules/interfaces/IOwnable.sol\":{\"keccak256\":\"0x1a2f746ed329104ec76afa37a657736abb57d99710f3bab4c2d224f0b2144c49\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://046cc00ac92b05678b10f6dcfc1be189eabb61cd363488c3b76539779e612f5c\",\"dweb:/ipfs/QmRRSnvFEvWXGCupYC94t7LgjqTxdPUdA39q4XcT38mbd2\"]},\"project:/contracts/modules/interfaces/IexecAccessors.sol\":{\"keccak256\":\"0xf448b6178477cbf845956b7396ef6945ace7e8545a1893be32bf863bcd162367\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://b80af28a5b4027759ca34193d9cb830f0a8d4afb0790a4104c7ad2f0813b2bf5\",\"dweb:/ipfs/Qmdq4QKP6hX9Risy6QpV27ZkpUtcoFm8QEh7T6LrYFYGDS\"]},\"project:/contracts/modules/interfaces/IexecAccessorsABILegacy.sol\":{\"keccak256\":\"0xd0d9b40e9c7e21a71683e04a05f8bf4907ed6edc3737d7ba158a1ad6e66b0f55\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://3c579197baf53d23890fa271193595bf78dca48a4c7bfa43ac885915e1f8c204\",\"dweb:/ipfs/QmTd3Bxkczci4xCp3u9BecfKEUqXNEupSrVuwbhb75iFy8\"]},\"project:/contracts/modules/interfaces/IexecCategoryManager.sol\":{\"keccak256\":\"0xdc8503472fe97d3bf328559f7960f533761f61e81645ff5eda4b6ffc576ea0ed\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://99e0bf8d8b9918e31e9cf4536ba54dc7c9f23380c4d1f5ebfabf4897b938bfe7\",\"dweb:/ipfs/QmW2yu32cRy729zt4cSPqM8UgUFPkY36rz2QHyRUxqp2pE\"]},\"project:/contracts/modules/interfaces/IexecERC20.sol\":{\"keccak256\":\"0x1946eda931d423650b83ccfc2952bbf686b3e44640504088fbb2a81479bd6736\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://d0a8163b4eef8d86e696bb8c33c9d60fc344b2a4a6c762c67e50511c222a7f3d\",\"dweb:/ipfs/QmQoJd2FWyHgFxpzVUYA7tawfomz6kpdjpP2WHJEdr6J9z\"]},\"project:/contracts/modules/interfaces/IexecEscrowNative.sol\":{\"keccak256\":\"0x9ede590387c649333601ef43d2c7c5c901b4dfefe75a69bc21099ffffa7bb4d4\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://acc8ff587c9e4b79de22ae89088d36aad31a48e32b72fb05a16bc372eb1b416f\",\"dweb:/ipfs/QmQaGW624U1c8iSPk11RYnYytFvcFZyHQX6xZ3PmYRmjNb\"]},\"project:/contracts/modules/interfaces/IexecMaintenance.sol\":{\"keccak256\":\"0x051e367d4ce21fef977f32857c234e5c7bb5a8c752110c1cee5306342ed402d3\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://9bab8be5cb0b46cd6662e1e19151d9858aab8edebfa3e39e8995103b40de3fac\",\"dweb:/ipfs/QmbCEwZ4J8WSxc4yLxNSvRGfUSzJLbSnXMimuV7HTaDr58\"]},\"project:/contracts/modules/interfaces/IexecOrderManagement.sol\":{\"keccak256\":\"0xadeda66811884c37167bd7b6c14f39504ea208da45734f74d6aacf04a97d6726\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://19c8150e1e1c32d6616320a3e7f1ab9b9d283befb3017ebf71fd553ded545d83\",\"dweb:/ipfs/QmWSsiRhguGXjrtkUZyx26ZHHSC1nfaSQ7rwkE5C1MREwV\"]},\"project:/contracts/modules/interfaces/IexecPoco1.sol\":{\"keccak256\":\"0x113fcfaf4d5048cfbf61c73f398d29771d68089751a1d492b0a43b774de1efb7\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://59f7dadf57e4108af4a3e5cbaa11180355a4c78450574314d9f1d3dacb4ddcf1\",\"dweb:/ipfs/QmWoFaRvGB99fYk8L48jdQxc4w2uFQhGHLGWLMDWH3AN9Z\"]},\"project:/contracts/modules/interfaces/IexecPoco2.sol\":{\"keccak256\":\"0x4355cab9dffd8a75f8390244175e04a36e6f25f0a4f26e86734f2aa8ea9e2672\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://4851f408b83b8f34542ca99b0ed797c1acfd51802da8460b7618dbe07b0916cb\",\"dweb:/ipfs/QmWNxsyLSge3mG1PZEvvnZ6ojpJJFnzjcEhMihPagFuyj3\"]},\"project:/contracts/modules/interfaces/IexecPoco3.sol\":{\"keccak256\":\"0xb076df7fb083fe725ac485599ac18ea2e8775b9686a74a7dbdd796dfb3a1aca4\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://f0e8bc207bbd429ec6f2fdb55548a47d8f62b91fc03ac5d56d3891e23a5f767a\",\"dweb:/ipfs/QmSGWhPG66WRXGhcFXoN5QmFc8tSYZ2RqNG2fLFAJbgrtd\"]},\"project:/contracts/modules/interfaces/IexecRelay.sol\":{\"keccak256\":\"0xb0194bc706fbb73b65c7212b730b660411a701eb6b27f6b659267a6c8f1e3f43\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://763fa699ee5a1f42c5a867bc11112579868d80efb0d7306a58d0f01ea2e0ec78\",\"dweb:/ipfs/QmWd7EaUmm3JnvXGnSBNqzWZpRyhDRZr66y3Zy9qqdvE1m\"]},\"project:/contracts/modules/interfaces/IexecTokenSpender.sol\":{\"keccak256\":\"0x1fc56bfa88ff462820129495b684aa12a94f51563d1bb22b666cb8b20cbcd53f\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://3db3c855e350f3c238687583f51f7553475e5289f5cd0c2e914173f64cdbe23d\",\"dweb:/ipfs/QmdKKsgF8pFfFj4Hyd3pXwwKbaXYWEceaGnhYssLnEbuvp\"]},\"project:/contracts/registries/IRegistry.sol\":{\"keccak256\":\"0xf3e3fbc86a8885350f4b0569c614af86f6fb53c53538b4c9e9dca738f71cb9d7\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://5509c58c14eb72402df0b5b7539b63334ac60dd72a056efc9bd365c22ea2ad76\",\"dweb:/ipfs/QmUbWTunvViw8t24pRsma2mnXedEkzANUKZpFTNpA2fHhE\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: Apache-2.0\n\n/******************************************************************************\n * Copyright 2020 IEXEC BLOCKCHAIN TECH                                       *\n *                                                                            *\n * Licensed under the Apache License, Version 2.0 (the \"License\");            *\n * you may not use this file except in compliance with the License.           *\n * You may obtain a copy of the License at                                    *\n *                                                                            *\n *     http://www.apache.org/licenses/LICENSE-2.0                             *\n *                                                                            *\n * Unless required by applicable law or agreed to in writing, software        *\n * distributed under the License is distributed on an \"AS IS\" BASIS,          *\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   *\n * See the License for the specific language governing permissions and        *\n * limitations under the License.                                             *\n ******************************************************************************/\n\npragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\nimport \"./modules/interfaces/IOwnable.sol\";\nimport \"./modules/interfaces/IexecAccessors.sol\";\nimport \"./modules/interfaces/IexecAccessorsABILegacy.sol\";\nimport \"./modules/interfaces/IexecCategoryManager.sol\";\nimport \"./modules/interfaces/IexecERC20.sol\";\nimport \"./modules/interfaces/IexecEscrowNative.sol\";\nimport \"./modules/interfaces/IexecMaintenance.sol\";\nimport \"./modules/interfaces/IexecOrderManagement.sol\";\nimport \"./modules/interfaces/IexecPoco1.sol\";\nimport \"./modules/interfaces/IexecPoco2.sol\";\nimport \"./modules/interfaces/IexecRelay.sol\";\nimport \"./modules/interfaces/IexecTokenSpender.sol\";\nimport \"./modules/interfaces/ENSIntegration.sol\";\n\n\ninterface IexecInterfaceNativeABILegacy is\n\tIOwnable,\n\tIexecAccessors,\n\tIexecAccessorsABILegacy,\n\tIexecCategoryManager,\n\tIexecERC20,\n\tIexecEscrowNative,\n\tIexecMaintenance,\n\tIexecOrderManagement,\n\tIexecPoco1,\n\tIexecPoco2,\n\tIexecRelay,\n\tIexecTokenSpender,\n\tENSIntegration\n{\n}\n",
-  "sourcePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/IexecInterfaceNativeABILegacy.sol",
+  "source": "// SPDX-License-Identifier: Apache-2.0\r\n\r\n/******************************************************************************\r\n * Copyright 2020 IEXEC BLOCKCHAIN TECH                                       *\r\n *                                                                            *\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");            *\r\n * you may not use this file except in compliance with the License.           *\r\n * You may obtain a copy of the License at                                    *\r\n *                                                                            *\r\n *     http://www.apache.org/licenses/LICENSE-2.0                             *\r\n *                                                                            *\r\n * Unless required by applicable law or agreed to in writing, software        *\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,          *\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   *\r\n * See the License for the specific language governing permissions and        *\r\n * limitations under the License.                                             *\r\n ******************************************************************************/\r\n\r\npragma solidity ^0.6.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport \"./modules/interfaces/IOwnable.sol\";\r\nimport \"./modules/interfaces/IexecAccessors.sol\";\r\nimport \"./modules/interfaces/IexecAccessorsABILegacy.sol\";\r\nimport \"./modules/interfaces/IexecCategoryManager.sol\";\r\nimport \"./modules/interfaces/IexecERC20.sol\";\r\nimport \"./modules/interfaces/IexecEscrowNative.sol\";\r\nimport \"./modules/interfaces/IexecMaintenance.sol\";\r\nimport \"./modules/interfaces/IexecOrderManagement.sol\";\r\nimport \"./modules/interfaces/IexecPoco1.sol\";\r\nimport \"./modules/interfaces/IexecPoco2.sol\";\r\nimport \"./modules/interfaces/IexecPoco3.sol\";\r\nimport \"./modules/interfaces/IexecRelay.sol\";\r\nimport \"./modules/interfaces/IexecTokenSpender.sol\";\r\nimport \"./modules/interfaces/ENSIntegration.sol\";\r\n\r\n\r\ninterface IexecInterfaceNativeABILegacy is\r\n\tIOwnable,\r\n\tIexecAccessors,\r\n\tIexecAccessorsABILegacy,\r\n\tIexecCategoryManager,\r\n\tIexecERC20,\r\n\tIexecEscrowNative,\r\n\tIexecMaintenance,\r\n\tIexecOrderManagement,\r\n\tIexecPoco1,\r\n\tIexecPoco2,\r\n\tIexecPoco3,\r\n\tIexecRelay,\r\n\tIexecTokenSpender,\r\n\tENSIntegration\r\n{\r\n}\r\n",
+  "sourcePath": "D:\\iexec\\PoCo\\contracts\\IexecInterfaceNativeABILegacy.sol",
   "ast": {
-    "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/IexecInterfaceNativeABILegacy.sol",
+    "absolutePath": "project:/contracts/IexecInterfaceNativeABILegacy.sol",
     "exportedSymbols": {
       "IexecInterfaceNativeABILegacy": [
-        82
+        5868
       ]
     },
-    "id": 83,
+    "id": 5869,
     "license": "Apache-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 41,
+        "id": 5824,
         "literals": [
           "solidity",
           "^",
@@ -3655,157 +3818,168 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "1242:23:1"
+        "src": "1260:23:41"
       },
       {
-        "id": 42,
+        "id": 5825,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "1266:33:1"
+        "src": "1285:33:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IOwnable.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IOwnable.sol",
         "file": "./modules/interfaces/IOwnable.sol",
-        "id": 43,
+        "id": 5826,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 8836,
-        "src": "1301:43:1",
+        "scope": 5869,
+        "sourceUnit": 14218,
+        "src": "1322:43:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessors.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecAccessors.sol",
         "file": "./modules/interfaces/IexecAccessors.sol",
-        "id": 44,
+        "id": 5827,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9026,
-        "src": "1345:49:1",
+        "scope": 5869,
+        "sourceUnit": 14408,
+        "src": "1367:49:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessorsABILegacy.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecAccessorsABILegacy.sol",
         "file": "./modules/interfaces/IexecAccessorsABILegacy.sol",
-        "id": 45,
+        "id": 5828,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9153,
-        "src": "1395:58:1",
+        "scope": 5869,
+        "sourceUnit": 14535,
+        "src": "1418:58:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecCategoryManager.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecCategoryManager.sol",
         "file": "./modules/interfaces/IexecCategoryManager.sol",
-        "id": 46,
+        "id": 5829,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9178,
-        "src": "1454:55:1",
+        "scope": 5869,
+        "sourceUnit": 14560,
+        "src": "1478:55:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecERC20.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecERC20.sol",
         "file": "./modules/interfaces/IexecERC20.sol",
-        "id": 47,
+        "id": 5830,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9256,
-        "src": "1510:45:1",
+        "scope": 5869,
+        "sourceUnit": 14638,
+        "src": "1535:45:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecEscrowNative.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecEscrowNative.sol",
         "file": "./modules/interfaces/IexecEscrowNative.sol",
-        "id": 48,
+        "id": 5831,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9342,
-        "src": "1556:52:1",
+        "scope": 5869,
+        "sourceUnit": 14724,
+        "src": "1582:52:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecMaintenance.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecMaintenance.sol",
         "file": "./modules/interfaces/IexecMaintenance.sol",
-        "id": 49,
+        "id": 5832,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9565,
-        "src": "1609:51:1",
+        "scope": 5869,
+        "sourceUnit": 14947,
+        "src": "1636:51:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecOrderManagement.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecOrderManagement.sol",
         "file": "./modules/interfaces/IexecOrderManagement.sol",
-        "id": 50,
+        "id": 5833,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9635,
-        "src": "1661:55:1",
+        "scope": 5869,
+        "sourceUnit": 15017,
+        "src": "1689:55:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco1.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecPoco1.sol",
         "file": "./modules/interfaces/IexecPoco1.sol",
-        "id": 51,
+        "id": 5834,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9732,
-        "src": "1717:45:1",
+        "scope": 5869,
+        "sourceUnit": 15114,
+        "src": "1746:45:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco2.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecPoco2.sol",
         "file": "./modules/interfaces/IexecPoco2.sol",
-        "id": 52,
+        "id": 5835,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9915,
-        "src": "1763:45:1",
+        "scope": 5869,
+        "sourceUnit": 15298,
+        "src": "1793:45:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecRelay.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecPoco3.sol",
+        "file": "./modules/interfaces/IexecPoco3.sol",
+        "id": 5836,
+        "nodeType": "ImportDirective",
+        "scope": 5869,
+        "sourceUnit": 15398,
+        "src": "1840:45:41",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/modules/interfaces/IexecRelay.sol",
         "file": "./modules/interfaces/IexecRelay.sol",
-        "id": 53,
+        "id": 5837,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9956,
-        "src": "1809:45:1",
+        "scope": 5869,
+        "sourceUnit": 15439,
+        "src": "1887:45:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecTokenSpender.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/IexecTokenSpender.sol",
         "file": "./modules/interfaces/IexecTokenSpender.sol",
-        "id": 54,
+        "id": 5838,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9973,
-        "src": "1855:52:1",
+        "scope": 5869,
+        "sourceUnit": 15456,
+        "src": "1934:52:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol",
+        "absolutePath": "project:/contracts/modules/interfaces/ENSIntegration.sol",
         "file": "./modules/interfaces/ENSIntegration.sol",
-        "id": 55,
+        "id": 5839,
         "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 8813,
-        "src": "1908:49:1",
+        "scope": 5869,
+        "sourceUnit": 14195,
+        "src": "1988:49:41",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -3816,748 +3990,907 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 56,
+              "id": 5840,
               "name": "IOwnable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8835,
-              "src": "2004:8:1",
+              "referencedDeclaration": 14217,
+              "src": "2088:8:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IOwnable_$8835",
+                "typeIdentifier": "t_contract$_IOwnable_$14217",
                 "typeString": "contract IOwnable"
               }
             },
-            "id": 57,
+            "id": 5841,
             "nodeType": "InheritanceSpecifier",
-            "src": "2004:8:1"
+            "src": "2088:8:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 58,
+              "id": 5842,
               "name": "IexecAccessors",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9025,
-              "src": "2015:14:1",
+              "referencedDeclaration": 14407,
+              "src": "2100:14:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecAccessors_$9025",
+                "typeIdentifier": "t_contract$_IexecAccessors_$14407",
                 "typeString": "contract IexecAccessors"
               }
             },
-            "id": 59,
+            "id": 5843,
             "nodeType": "InheritanceSpecifier",
-            "src": "2015:14:1"
+            "src": "2100:14:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 60,
+              "id": 5844,
               "name": "IexecAccessorsABILegacy",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9152,
-              "src": "2032:23:1",
+              "referencedDeclaration": 14534,
+              "src": "2118:23:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecAccessorsABILegacy_$9152",
+                "typeIdentifier": "t_contract$_IexecAccessorsABILegacy_$14534",
                 "typeString": "contract IexecAccessorsABILegacy"
               }
             },
-            "id": 61,
+            "id": 5845,
             "nodeType": "InheritanceSpecifier",
-            "src": "2032:23:1"
+            "src": "2118:23:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 62,
+              "id": 5846,
               "name": "IexecCategoryManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9177,
-              "src": "2058:20:1",
+              "referencedDeclaration": 14559,
+              "src": "2145:20:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecCategoryManager_$9177",
+                "typeIdentifier": "t_contract$_IexecCategoryManager_$14559",
                 "typeString": "contract IexecCategoryManager"
               }
             },
-            "id": 63,
+            "id": 5847,
             "nodeType": "InheritanceSpecifier",
-            "src": "2058:20:1"
+            "src": "2145:20:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 64,
+              "id": 5848,
               "name": "IexecERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9255,
-              "src": "2081:10:1",
+              "referencedDeclaration": 14637,
+              "src": "2169:10:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecERC20_$9255",
+                "typeIdentifier": "t_contract$_IexecERC20_$14637",
                 "typeString": "contract IexecERC20"
               }
             },
-            "id": 65,
+            "id": 5849,
             "nodeType": "InheritanceSpecifier",
-            "src": "2081:10:1"
+            "src": "2169:10:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 66,
+              "id": 5850,
               "name": "IexecEscrowNative",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9341,
-              "src": "2094:17:1",
+              "referencedDeclaration": 14723,
+              "src": "2183:17:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecEscrowNative_$9341",
+                "typeIdentifier": "t_contract$_IexecEscrowNative_$14723",
                 "typeString": "contract IexecEscrowNative"
               }
             },
-            "id": 67,
+            "id": 5851,
             "nodeType": "InheritanceSpecifier",
-            "src": "2094:17:1"
+            "src": "2183:17:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 68,
+              "id": 5852,
               "name": "IexecMaintenance",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9564,
-              "src": "2114:16:1",
+              "referencedDeclaration": 14946,
+              "src": "2204:16:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecMaintenance_$9564",
+                "typeIdentifier": "t_contract$_IexecMaintenance_$14946",
                 "typeString": "contract IexecMaintenance"
               }
             },
-            "id": 69,
+            "id": 5853,
             "nodeType": "InheritanceSpecifier",
-            "src": "2114:16:1"
+            "src": "2204:16:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 70,
+              "id": 5854,
               "name": "IexecOrderManagement",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9634,
-              "src": "2133:20:1",
+              "referencedDeclaration": 15016,
+              "src": "2224:20:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecOrderManagement_$9634",
+                "typeIdentifier": "t_contract$_IexecOrderManagement_$15016",
                 "typeString": "contract IexecOrderManagement"
               }
             },
-            "id": 71,
+            "id": 5855,
             "nodeType": "InheritanceSpecifier",
-            "src": "2133:20:1"
+            "src": "2224:20:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 72,
+              "id": 5856,
               "name": "IexecPoco1",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9731,
-              "src": "2156:10:1",
+              "referencedDeclaration": 15113,
+              "src": "2248:10:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecPoco1_$9731",
+                "typeIdentifier": "t_contract$_IexecPoco1_$15113",
                 "typeString": "contract IexecPoco1"
               }
             },
-            "id": 73,
+            "id": 5857,
             "nodeType": "InheritanceSpecifier",
-            "src": "2156:10:1"
+            "src": "2248:10:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 74,
+              "id": 5858,
               "name": "IexecPoco2",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9914,
-              "src": "2169:10:1",
+              "referencedDeclaration": 15297,
+              "src": "2262:10:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecPoco2_$9914",
+                "typeIdentifier": "t_contract$_IexecPoco2_$15297",
                 "typeString": "contract IexecPoco2"
               }
             },
-            "id": 75,
+            "id": 5859,
             "nodeType": "InheritanceSpecifier",
-            "src": "2169:10:1"
+            "src": "2262:10:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 76,
+              "id": 5860,
+              "name": "IexecPoco3",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15397,
+              "src": "2276:10:41",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IexecPoco3_$15397",
+                "typeString": "contract IexecPoco3"
+              }
+            },
+            "id": 5861,
+            "nodeType": "InheritanceSpecifier",
+            "src": "2276:10:41"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 5862,
               "name": "IexecRelay",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9955,
-              "src": "2182:10:1",
+              "referencedDeclaration": 15438,
+              "src": "2290:10:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecRelay_$9955",
+                "typeIdentifier": "t_contract$_IexecRelay_$15438",
                 "typeString": "contract IexecRelay"
               }
             },
-            "id": 77,
+            "id": 5863,
             "nodeType": "InheritanceSpecifier",
-            "src": "2182:10:1"
+            "src": "2290:10:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 78,
+              "id": 5864,
               "name": "IexecTokenSpender",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9972,
-              "src": "2195:17:1",
+              "referencedDeclaration": 15455,
+              "src": "2304:17:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecTokenSpender_$9972",
+                "typeIdentifier": "t_contract$_IexecTokenSpender_$15455",
                 "typeString": "contract IexecTokenSpender"
               }
             },
-            "id": 79,
+            "id": 5865,
             "nodeType": "InheritanceSpecifier",
-            "src": "2195:17:1"
+            "src": "2304:17:41"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 80,
+              "id": 5866,
               "name": "ENSIntegration",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8812,
-              "src": "2215:14:1",
+              "referencedDeclaration": 14194,
+              "src": "2325:14:41",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ENSIntegration_$8812",
+                "typeIdentifier": "t_contract$_ENSIntegration_$14194",
                 "typeString": "contract ENSIntegration"
               }
             },
-            "id": 81,
+            "id": 5867,
             "nodeType": "InheritanceSpecifier",
-            "src": "2215:14:1"
+            "src": "2325:14:41"
           }
         ],
         "contractDependencies": [
-          8812,
-          8835,
-          9025,
-          9152,
-          9177,
-          9255,
-          9341,
-          9564,
-          9634,
-          9731,
-          9914,
-          9955,
-          9972,
-          13136
+          1547,
+          14194,
+          14217,
+          14407,
+          14534,
+          14559,
+          14637,
+          14723,
+          14946,
+          15016,
+          15113,
+          15297,
+          15397,
+          15438,
+          15455
         ],
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 82,
+        "id": 5868,
         "linearizedBaseContracts": [
-          82,
-          8812,
-          9972,
-          9955,
-          9914,
-          9731,
-          9634,
-          9564,
-          9341,
-          9255,
-          9177,
-          9152,
-          9025,
-          13136,
-          8835
+          5868,
+          14194,
+          15455,
+          15438,
+          15397,
+          15297,
+          15113,
+          15016,
+          14946,
+          14723,
+          14637,
+          14559,
+          14534,
+          14407,
+          1547,
+          14217
         ],
         "name": "IexecInterfaceNativeABILegacy",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 83,
-        "src": "1960:273:1"
+        "scope": 5869,
+        "src": "2043:302:41"
       }
     ],
-    "src": "1242:992:1"
+    "src": "1260:1087:41"
   },
   "legacyAST": {
-    "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/IexecInterfaceNativeABILegacy.sol",
-    "exportedSymbols": {
-      "IexecInterfaceNativeABILegacy": [
-        82
-      ]
+    "attributes": {
+      "absolutePath": "project:/contracts/IexecInterfaceNativeABILegacy.sol",
+      "exportedSymbols": {
+        "IexecInterfaceNativeABILegacy": [
+          5868
+        ]
+      },
+      "license": "Apache-2.0"
     },
-    "id": 83,
-    "license": "Apache-2.0",
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
-        "id": 41,
-        "literals": [
-          "solidity",
-          "^",
-          "0.6",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "1242:23:1"
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 5824,
+        "name": "PragmaDirective",
+        "src": "1260:23:41"
       },
       {
-        "id": 42,
-        "literals": [
-          "experimental",
-          "ABIEncoderV2"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "1266:33:1"
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 5825,
+        "name": "PragmaDirective",
+        "src": "1285:33:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IOwnable.sol",
-        "file": "./modules/interfaces/IOwnable.sol",
-        "id": 43,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 8836,
-        "src": "1301:43:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14218,
+          "absolutePath": "project:/contracts/modules/interfaces/IOwnable.sol",
+          "file": "./modules/interfaces/IOwnable.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5826,
+        "name": "ImportDirective",
+        "src": "1322:43:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessors.sol",
-        "file": "./modules/interfaces/IexecAccessors.sol",
-        "id": 44,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9026,
-        "src": "1345:49:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14408,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecAccessors.sol",
+          "file": "./modules/interfaces/IexecAccessors.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5827,
+        "name": "ImportDirective",
+        "src": "1367:49:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecAccessorsABILegacy.sol",
-        "file": "./modules/interfaces/IexecAccessorsABILegacy.sol",
-        "id": 45,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9153,
-        "src": "1395:58:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14535,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecAccessorsABILegacy.sol",
+          "file": "./modules/interfaces/IexecAccessorsABILegacy.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5828,
+        "name": "ImportDirective",
+        "src": "1418:58:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecCategoryManager.sol",
-        "file": "./modules/interfaces/IexecCategoryManager.sol",
-        "id": 46,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9178,
-        "src": "1454:55:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14560,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecCategoryManager.sol",
+          "file": "./modules/interfaces/IexecCategoryManager.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5829,
+        "name": "ImportDirective",
+        "src": "1478:55:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecERC20.sol",
-        "file": "./modules/interfaces/IexecERC20.sol",
-        "id": 47,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9256,
-        "src": "1510:45:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14638,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecERC20.sol",
+          "file": "./modules/interfaces/IexecERC20.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5830,
+        "name": "ImportDirective",
+        "src": "1535:45:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecEscrowNative.sol",
-        "file": "./modules/interfaces/IexecEscrowNative.sol",
-        "id": 48,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9342,
-        "src": "1556:52:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14724,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecEscrowNative.sol",
+          "file": "./modules/interfaces/IexecEscrowNative.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5831,
+        "name": "ImportDirective",
+        "src": "1582:52:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecMaintenance.sol",
-        "file": "./modules/interfaces/IexecMaintenance.sol",
-        "id": 49,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9565,
-        "src": "1609:51:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 14947,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecMaintenance.sol",
+          "file": "./modules/interfaces/IexecMaintenance.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5832,
+        "name": "ImportDirective",
+        "src": "1636:51:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecOrderManagement.sol",
-        "file": "./modules/interfaces/IexecOrderManagement.sol",
-        "id": 50,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9635,
-        "src": "1661:55:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15017,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecOrderManagement.sol",
+          "file": "./modules/interfaces/IexecOrderManagement.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5833,
+        "name": "ImportDirective",
+        "src": "1689:55:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco1.sol",
-        "file": "./modules/interfaces/IexecPoco1.sol",
-        "id": 51,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9732,
-        "src": "1717:45:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15114,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecPoco1.sol",
+          "file": "./modules/interfaces/IexecPoco1.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5834,
+        "name": "ImportDirective",
+        "src": "1746:45:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecPoco2.sol",
-        "file": "./modules/interfaces/IexecPoco2.sol",
-        "id": 52,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9915,
-        "src": "1763:45:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15298,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecPoco2.sol",
+          "file": "./modules/interfaces/IexecPoco2.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5835,
+        "name": "ImportDirective",
+        "src": "1793:45:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecRelay.sol",
-        "file": "./modules/interfaces/IexecRelay.sol",
-        "id": 53,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9956,
-        "src": "1809:45:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15398,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecPoco3.sol",
+          "file": "./modules/interfaces/IexecPoco3.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5836,
+        "name": "ImportDirective",
+        "src": "1840:45:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/IexecTokenSpender.sol",
-        "file": "./modules/interfaces/IexecTokenSpender.sol",
-        "id": 54,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 9973,
-        "src": "1855:52:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15439,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecRelay.sol",
+          "file": "./modules/interfaces/IexecRelay.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5837,
+        "name": "ImportDirective",
+        "src": "1887:45:41"
       },
       {
-        "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol",
-        "file": "./modules/interfaces/ENSIntegration.sol",
-        "id": 55,
-        "nodeType": "ImportDirective",
-        "scope": 83,
-        "sourceUnit": 8813,
-        "src": "1908:49:1",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "attributes": {
+          "SourceUnit": 15456,
+          "absolutePath": "project:/contracts/modules/interfaces/IexecTokenSpender.sol",
+          "file": "./modules/interfaces/IexecTokenSpender.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5838,
+        "name": "ImportDirective",
+        "src": "1934:52:41"
       },
       {
-        "abstract": false,
-        "baseContracts": [
+        "attributes": {
+          "SourceUnit": 14195,
+          "absolutePath": "project:/contracts/modules/interfaces/ENSIntegration.sol",
+          "file": "./modules/interfaces/ENSIntegration.sol",
+          "scope": 5869,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 5839,
+        "name": "ImportDirective",
+        "src": "1988:49:41"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            1547,
+            14194,
+            14217,
+            14407,
+            14534,
+            14559,
+            14637,
+            14723,
+            14946,
+            15016,
+            15113,
+            15297,
+            15397,
+            15438,
+            15455
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            5868,
+            14194,
+            15455,
+            15438,
+            15397,
+            15297,
+            15113,
+            15016,
+            14946,
+            14723,
+            14637,
+            14559,
+            14534,
+            14407,
+            1547,
+            14217
+          ],
+          "name": "IexecInterfaceNativeABILegacy",
+          "nodes": [
+            null
+          ],
+          "scope": 5869
+        },
+        "children": [
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 56,
-              "name": "IOwnable",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8835,
-              "src": "2004:8:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IOwnable_$8835",
-                "typeString": "contract IOwnable"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 57,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2004:8:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IOwnable",
+                  "referencedDeclaration": 14217,
+                  "type": "contract IOwnable"
+                },
+                "id": 5840,
+                "name": "UserDefinedTypeName",
+                "src": "2088:8:41"
+              }
+            ],
+            "id": 5841,
+            "name": "InheritanceSpecifier",
+            "src": "2088:8:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 58,
-              "name": "IexecAccessors",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9025,
-              "src": "2015:14:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecAccessors_$9025",
-                "typeString": "contract IexecAccessors"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 59,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2015:14:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecAccessors",
+                  "referencedDeclaration": 14407,
+                  "type": "contract IexecAccessors"
+                },
+                "id": 5842,
+                "name": "UserDefinedTypeName",
+                "src": "2100:14:41"
+              }
+            ],
+            "id": 5843,
+            "name": "InheritanceSpecifier",
+            "src": "2100:14:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 60,
-              "name": "IexecAccessorsABILegacy",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9152,
-              "src": "2032:23:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecAccessorsABILegacy_$9152",
-                "typeString": "contract IexecAccessorsABILegacy"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 61,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2032:23:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecAccessorsABILegacy",
+                  "referencedDeclaration": 14534,
+                  "type": "contract IexecAccessorsABILegacy"
+                },
+                "id": 5844,
+                "name": "UserDefinedTypeName",
+                "src": "2118:23:41"
+              }
+            ],
+            "id": 5845,
+            "name": "InheritanceSpecifier",
+            "src": "2118:23:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 62,
-              "name": "IexecCategoryManager",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9177,
-              "src": "2058:20:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecCategoryManager_$9177",
-                "typeString": "contract IexecCategoryManager"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 63,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2058:20:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecCategoryManager",
+                  "referencedDeclaration": 14559,
+                  "type": "contract IexecCategoryManager"
+                },
+                "id": 5846,
+                "name": "UserDefinedTypeName",
+                "src": "2145:20:41"
+              }
+            ],
+            "id": 5847,
+            "name": "InheritanceSpecifier",
+            "src": "2145:20:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 64,
-              "name": "IexecERC20",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9255,
-              "src": "2081:10:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecERC20_$9255",
-                "typeString": "contract IexecERC20"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 65,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2081:10:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecERC20",
+                  "referencedDeclaration": 14637,
+                  "type": "contract IexecERC20"
+                },
+                "id": 5848,
+                "name": "UserDefinedTypeName",
+                "src": "2169:10:41"
+              }
+            ],
+            "id": 5849,
+            "name": "InheritanceSpecifier",
+            "src": "2169:10:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 66,
-              "name": "IexecEscrowNative",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9341,
-              "src": "2094:17:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecEscrowNative_$9341",
-                "typeString": "contract IexecEscrowNative"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 67,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2094:17:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecEscrowNative",
+                  "referencedDeclaration": 14723,
+                  "type": "contract IexecEscrowNative"
+                },
+                "id": 5850,
+                "name": "UserDefinedTypeName",
+                "src": "2183:17:41"
+              }
+            ],
+            "id": 5851,
+            "name": "InheritanceSpecifier",
+            "src": "2183:17:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 68,
-              "name": "IexecMaintenance",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9564,
-              "src": "2114:16:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecMaintenance_$9564",
-                "typeString": "contract IexecMaintenance"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 69,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2114:16:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecMaintenance",
+                  "referencedDeclaration": 14946,
+                  "type": "contract IexecMaintenance"
+                },
+                "id": 5852,
+                "name": "UserDefinedTypeName",
+                "src": "2204:16:41"
+              }
+            ],
+            "id": 5853,
+            "name": "InheritanceSpecifier",
+            "src": "2204:16:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 70,
-              "name": "IexecOrderManagement",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9634,
-              "src": "2133:20:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecOrderManagement_$9634",
-                "typeString": "contract IexecOrderManagement"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 71,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2133:20:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecOrderManagement",
+                  "referencedDeclaration": 15016,
+                  "type": "contract IexecOrderManagement"
+                },
+                "id": 5854,
+                "name": "UserDefinedTypeName",
+                "src": "2224:20:41"
+              }
+            ],
+            "id": 5855,
+            "name": "InheritanceSpecifier",
+            "src": "2224:20:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 72,
-              "name": "IexecPoco1",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9731,
-              "src": "2156:10:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecPoco1_$9731",
-                "typeString": "contract IexecPoco1"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 73,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2156:10:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecPoco1",
+                  "referencedDeclaration": 15113,
+                  "type": "contract IexecPoco1"
+                },
+                "id": 5856,
+                "name": "UserDefinedTypeName",
+                "src": "2248:10:41"
+              }
+            ],
+            "id": 5857,
+            "name": "InheritanceSpecifier",
+            "src": "2248:10:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 74,
-              "name": "IexecPoco2",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9914,
-              "src": "2169:10:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecPoco2_$9914",
-                "typeString": "contract IexecPoco2"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 75,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2169:10:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecPoco2",
+                  "referencedDeclaration": 15297,
+                  "type": "contract IexecPoco2"
+                },
+                "id": 5858,
+                "name": "UserDefinedTypeName",
+                "src": "2262:10:41"
+              }
+            ],
+            "id": 5859,
+            "name": "InheritanceSpecifier",
+            "src": "2262:10:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 76,
-              "name": "IexecRelay",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9955,
-              "src": "2182:10:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecRelay_$9955",
-                "typeString": "contract IexecRelay"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 77,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2182:10:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecPoco3",
+                  "referencedDeclaration": 15397,
+                  "type": "contract IexecPoco3"
+                },
+                "id": 5860,
+                "name": "UserDefinedTypeName",
+                "src": "2276:10:41"
+              }
+            ],
+            "id": 5861,
+            "name": "InheritanceSpecifier",
+            "src": "2276:10:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 78,
-              "name": "IexecTokenSpender",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 9972,
-              "src": "2195:17:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IexecTokenSpender_$9972",
-                "typeString": "contract IexecTokenSpender"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 79,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2195:17:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecRelay",
+                  "referencedDeclaration": 15438,
+                  "type": "contract IexecRelay"
+                },
+                "id": 5862,
+                "name": "UserDefinedTypeName",
+                "src": "2290:10:41"
+              }
+            ],
+            "id": 5863,
+            "name": "InheritanceSpecifier",
+            "src": "2290:10:41"
           },
           {
-            "arguments": null,
-            "baseName": {
-              "contractScope": null,
-              "id": 80,
-              "name": "ENSIntegration",
-              "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8812,
-              "src": "2215:14:1",
-              "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ENSIntegration_$8812",
-                "typeString": "contract ENSIntegration"
-              }
+            "attributes": {
+              "arguments": null
             },
-            "id": 81,
-            "nodeType": "InheritanceSpecifier",
-            "src": "2215:14:1"
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IexecTokenSpender",
+                  "referencedDeclaration": 15455,
+                  "type": "contract IexecTokenSpender"
+                },
+                "id": 5864,
+                "name": "UserDefinedTypeName",
+                "src": "2304:17:41"
+              }
+            ],
+            "id": 5865,
+            "name": "InheritanceSpecifier",
+            "src": "2304:17:41"
+          },
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "ENSIntegration",
+                  "referencedDeclaration": 14194,
+                  "type": "contract ENSIntegration"
+                },
+                "id": 5866,
+                "name": "UserDefinedTypeName",
+                "src": "2325:14:41"
+              }
+            ],
+            "id": 5867,
+            "name": "InheritanceSpecifier",
+            "src": "2325:14:41"
           }
         ],
-        "contractDependencies": [
-          8812,
-          8835,
-          9025,
-          9152,
-          9177,
-          9255,
-          9341,
-          9564,
-          9634,
-          9731,
-          9914,
-          9955,
-          9972,
-          13136
-        ],
-        "contractKind": "interface",
-        "documentation": null,
-        "fullyImplemented": false,
-        "id": 82,
-        "linearizedBaseContracts": [
-          82,
-          8812,
-          9972,
-          9955,
-          9914,
-          9731,
-          9634,
-          9564,
-          9341,
-          9255,
-          9177,
-          9152,
-          9025,
-          13136,
-          8835
-        ],
-        "name": "IexecInterfaceNativeABILegacy",
-        "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 83,
-        "src": "1960:273:1"
+        "id": 5868,
+        "name": "ContractDefinition",
+        "src": "2043:302:41"
       }
     ],
-    "src": "1242:992:1"
+    "id": 5869,
+    "name": "SourceUnit",
+    "src": "1260:1087:41"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-05T09:36:21.514Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-08-31T16:41:48.585Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

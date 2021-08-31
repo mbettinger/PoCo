@@ -19,34 +19,25 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "./modules/interfaces/IOwnable.sol";
-import "./modules/interfaces/IexecAccessors.sol";
-import "./modules/interfaces/IexecCategoryManager.sol";
-import "./modules/interfaces/IexecERC20.sol";
-import "./modules/interfaces/IexecEscrowNative.sol";
-import "./modules/interfaces/IexecMaintenance.sol";
-import "./modules/interfaces/IexecOrderManagement.sol";
-import "./modules/interfaces/IexecPoco1.sol";
-import "./modules/interfaces/IexecPoco2.sol";
-import "./modules/interfaces/IexecPoco3.sol";
-import "./modules/interfaces/IexecRelay.sol";
-import "./modules/interfaces/IexecTokenSpender.sol";
-import "./modules/interfaces/ENSIntegration.sol";
+import "../../libs/IexecLibCore_v5.sol";
 
-
-interface IexecInterfaceNative is
-	IOwnable,
-	IexecAccessors,
-	IexecCategoryManager,
-	IexecERC20,
-	IexecEscrowNative,
-	IexecMaintenance,
-	IexecOrderManagement,
-	IexecPoco1,
-	IexecPoco2,
-	IexecPoco3,
-	IexecRelay,
-	IexecTokenSpender,
-	ENSIntegration
+interface IexecPoco3
 {
+	event Reward(address owner, uint256 amount, bytes32 ref);
+	event Seize (address owner, uint256 amount, bytes32 ref);
+	event Lock  (address owner, uint256 amount);
+	event Unlock(address owner, uint256 amount);
+
+	event AccurateContribution(address indexed worker, bytes32 indexed taskid);
+	event FaultyContribution  (address indexed worker, bytes32 indexed taskid);
+
+	event TaskInitialize(bytes32 indexed taskid, address indexed workerpool);
+	event TaskContribute(bytes32 indexed taskid, address indexed worker, bytes32 hash);
+	event TaskConsensus (bytes32 indexed taskid, bytes32 consensus);
+	event TaskReveal    (bytes32 indexed taskid, address indexed worker, bytes32 digest);
+	event TaskFinalize  (bytes32 indexed taskid, bytes results);
+	event TaskClaimed   (bytes32 indexed taskid);
+	event TaskReopen    (bytes32 indexed taskid);
+
+	function proxyInitContribAndFinalize(IexecLibCore_v5.ProxyDeal memory, IexecLibCore_v5.ProxyTask memory, address, bytes memory, bytes memory) external; // Expansion - result separation
 }

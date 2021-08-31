@@ -29,6 +29,7 @@ import "./modules/interfaces/IexecMaintenance.sol";
 import "./modules/interfaces/IexecOrderManagement.sol";
 import "./modules/interfaces/IexecPoco1.sol";
 import "./modules/interfaces/IexecPoco2.sol";
+import "./modules/interfaces/IexecPoco3.sol";
 import "./modules/interfaces/IexecRelay.sol";
 import "./modules/interfaces/IexecTokenSpender.sol";
 import "./modules/interfaces/ENSIntegration.sol";
@@ -45,6 +46,7 @@ interface IexecInterfaceNativeABILegacy is
 	IexecOrderManagement,
 	IexecPoco1,
 	IexecPoco2,
+	IexecPoco3,
 	IexecRelay,
 	IexecTokenSpender,
 	ENSIntegration

@@ -20,27 +20,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"ens\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"setName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol\":\"ENSIntegration\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol\":{\"keccak256\":\"0x42793f9e2a355f6141d35e020ab171c765432d01c5985eaa8a4836a59b425d45\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://0d2d6682dd3cc397377d58c78333642a89d93ef8253fd078bedb98c42ffd823e\",\"dweb:/ipfs/QmRhHceCaNuvkhTQEE7wExfNJ9xLHasLiNrYmHJ6zGU5ye\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"ens\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"setName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/modules/interfaces/ENSIntegration.sol\":\"ENSIntegration\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/modules/interfaces/ENSIntegration.sol\":{\"keccak256\":\"0x8ea27638ccffa4c068d77190552f68ab138ca88e99e4f3b174f57c9219484c6d\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://6784f8b6aaefc0cceef45ce027b64c986e1dd22a67830c9a181c50b847c85c19\",\"dweb:/ipfs/QmNWywT2VdMU5NnoaDzyN5HeaUJHfqP6Rnh6KcJm9asLnJ\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: Apache-2.0\n\n/******************************************************************************\n * Copyright 2020 IEXEC BLOCKCHAIN TECH                                       *\n *                                                                            *\n * Licensed under the Apache License, Version 2.0 (the \"License\");            *\n * you may not use this file except in compliance with the License.           *\n * You may obtain a copy of the License at                                    *\n *                                                                            *\n *     http://www.apache.org/licenses/LICENSE-2.0                             *\n *                                                                            *\n * Unless required by applicable law or agreed to in writing, software        *\n * distributed under the License is distributed on an \"AS IS\" BASIS,          *\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   *\n * See the License for the specific language governing permissions and        *\n * limitations under the License.                                             *\n ******************************************************************************/\n\npragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\n\ninterface ENSIntegration\n{\n\tfunction setName(address ens, string calldata name) external;\n}\n",
-  "sourcePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol",
+  "source": "// SPDX-License-Identifier: Apache-2.0\r\n\r\n/******************************************************************************\r\n * Copyright 2020 IEXEC BLOCKCHAIN TECH                                       *\r\n *                                                                            *\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");            *\r\n * you may not use this file except in compliance with the License.           *\r\n * You may obtain a copy of the License at                                    *\r\n *                                                                            *\r\n *     http://www.apache.org/licenses/LICENSE-2.0                             *\r\n *                                                                            *\r\n * Unless required by applicable law or agreed to in writing, software        *\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,          *\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   *\r\n * See the License for the specific language governing permissions and        *\r\n * limitations under the License.                                             *\r\n ******************************************************************************/\r\n\r\npragma solidity ^0.6.0;\r\npragma experimental ABIEncoderV2;\r\n\r\n\r\ninterface ENSIntegration\r\n{\r\n\tfunction setName(address ens, string calldata name) external;\r\n}\r\n",
+  "sourcePath": "D:\\iexec\\PoCo\\contracts\\modules\\interfaces\\ENSIntegration.sol",
   "ast": {
-    "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol",
+    "absolutePath": "project:/contracts/modules/interfaces/ENSIntegration.sol",
     "exportedSymbols": {
       "ENSIntegration": [
-        8751
+        14194
       ]
     },
-    "id": 8752,
+    "id": 14195,
     "license": "Apache-2.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 8742,
+        "id": 14185,
         "literals": [
           "solidity",
           "^",
@@ -48,16 +48,16 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "1242:23:32"
+        "src": "1260:23:70"
       },
       {
-        "id": 8743,
+        "id": 14186,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "1266:33:32"
+        "src": "1285:33:70"
       },
       {
         "abstract": false,
@@ -66,9 +66,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 8751,
+        "id": 14194,
         "linearizedBaseContracts": [
-          8751
+          14194
         ],
         "name": "ENSIntegration",
         "nodeType": "ContractDefinition",
@@ -77,7 +77,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "3121db1c",
-            "id": 8750,
+            "id": 14193,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -85,18 +85,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 8748,
+              "id": 14191,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 8745,
+                  "id": 14188,
                   "mutability": "mutable",
                   "name": "ens",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8750,
-                  "src": "1347:11:32",
+                  "scope": 14193,
+                  "src": "1371:11:70",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -104,10 +104,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 8744,
+                    "id": 14187,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1347:7:32",
+                    "src": "1371:7:70",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -119,13 +119,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 8747,
+                  "id": 14190,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 8750,
-                  "src": "1360:20:32",
+                  "scope": 14193,
+                  "src": "1384:20:70",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -133,10 +133,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 8746,
+                    "id": 14189,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1360:6:32",
+                    "src": "1384:6:70",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -146,173 +146,197 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1346:35:32"
+              "src": "1370:35:70"
             },
             "returnParameters": {
-              "id": 8749,
+              "id": 14192,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1390:0:32"
+              "src": "1414:0:70"
             },
-            "scope": 8751,
-            "src": "1330:61:32",
+            "scope": 14194,
+            "src": "1354:61:70",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 8752,
-        "src": "1302:91:32"
+        "scope": 14195,
+        "src": "1324:94:70"
       }
     ],
-    "src": "1242:152:32"
+    "src": "1260:160:70"
   },
   "legacyAST": {
-    "absolutePath": "/home/amxx/Work/iExec/code/PoCo-dev/contracts/modules/interfaces/ENSIntegration.sol",
-    "exportedSymbols": {
-      "ENSIntegration": [
-        8751
-      ]
+    "attributes": {
+      "absolutePath": "project:/contracts/modules/interfaces/ENSIntegration.sol",
+      "exportedSymbols": {
+        "ENSIntegration": [
+          14194
+        ]
+      },
+      "license": "Apache-2.0"
     },
-    "id": 8752,
-    "license": "Apache-2.0",
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
-        "id": 8742,
-        "literals": [
-          "solidity",
-          "^",
-          "0.6",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "1242:23:32"
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 14185,
+        "name": "PragmaDirective",
+        "src": "1260:23:70"
       },
       {
-        "id": 8743,
-        "literals": [
-          "experimental",
-          "ABIEncoderV2"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "1266:33:32"
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 14186,
+        "name": "PragmaDirective",
+        "src": "1285:33:70"
       },
       {
-        "abstract": false,
-        "baseContracts": [],
-        "contractDependencies": [],
-        "contractKind": "interface",
-        "documentation": null,
-        "fullyImplemented": false,
-        "id": 8751,
-        "linearizedBaseContracts": [
-          8751
-        ],
-        "name": "ENSIntegration",
-        "nodeType": "ContractDefinition",
-        "nodes": [
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            14194
+          ],
+          "name": "ENSIntegration",
+          "scope": 14195
+        },
+        "children": [
           {
-            "body": null,
-            "documentation": null,
-            "functionSelector": "3121db1c",
-            "id": 8750,
-            "implemented": false,
-            "kind": "function",
-            "modifiers": [],
-            "name": "setName",
-            "nodeType": "FunctionDefinition",
-            "overrides": null,
-            "parameters": {
-              "id": 8748,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 8745,
-                  "mutability": "mutable",
-                  "name": "ens",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 8750,
-                  "src": "1347:11:32",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address",
-                    "typeString": "address"
-                  },
-                  "typeName": {
-                    "id": 8744,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1347:7:32",
-                    "stateMutability": "nonpayable",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 8747,
-                  "mutability": "mutable",
-                  "name": "name",
-                  "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 8750,
-                  "src": "1360:20:32",
-                  "stateVariable": false,
-                  "storageLocation": "calldata",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_calldata_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 8746,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1360:6:32",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "3121db1c",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
               ],
-              "src": "1346:35:32"
+              "name": "setName",
+              "overrides": null,
+              "scope": 14194,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
             },
-            "returnParameters": {
-              "id": 8749,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1390:0:32"
-            },
-            "scope": 8751,
-            "src": "1330:61:32",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "external"
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "ens",
+                      "overrides": null,
+                      "scope": 14193,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 14187,
+                        "name": "ElementaryTypeName",
+                        "src": "1371:7:70"
+                      }
+                    ],
+                    "id": 14188,
+                    "name": "VariableDeclaration",
+                    "src": "1371:11:70"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "name",
+                      "overrides": null,
+                      "scope": 14193,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 14189,
+                        "name": "ElementaryTypeName",
+                        "src": "1384:6:70"
+                      }
+                    ],
+                    "id": 14190,
+                    "name": "VariableDeclaration",
+                    "src": "1384:20:70"
+                  }
+                ],
+                "id": 14191,
+                "name": "ParameterList",
+                "src": "1370:35:70"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14192,
+                "name": "ParameterList",
+                "src": "1414:0:70"
+              }
+            ],
+            "id": 14193,
+            "name": "FunctionDefinition",
+            "src": "1354:61:70"
           }
         ],
-        "scope": 8752,
-        "src": "1302:91:32"
+        "id": 14194,
+        "name": "ContractDefinition",
+        "src": "1324:94:70"
       }
     ],
-    "src": "1242:152:32"
+    "id": 14195,
+    "name": "SourceUnit",
+    "src": "1260:160:70"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-04T15:01:35.854Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-08-31T16:41:48.802Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

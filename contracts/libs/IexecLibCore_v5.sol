@@ -67,6 +67,31 @@ library IexecLibCore_v5
 		uint256 workerStake;
 		uint256 schedulerRewardRatio;
 	}
+	//Constrained by Oracle result verification + PoCo init/contribution/finalization 
+	struct ProxyDeal
+	{
+	    uint256 chain; //Traceability
+	    address sourceHub; //Traceability
+		// Ressources
+		Resource app; //ORV
+		Resource dataset; //ORV
+		Resource workerpool; //ORV
+		uint256 trust; //ORV
+		//uint256 category;
+		bytes32 tag; //ORV
+		// execution details
+		//address requester;
+		//address beneficiary;
+		//address callback;
+		//string  params;
+		// execution settings
+		//uint256 startTime;
+		//uint256 botFirst;
+		//uint256 botSize;
+		// consistency
+		//uint256 workerStake;
+		//uint256 schedulerRewardRatio;
+	}
 
 	/**
 	 * Tasks
@@ -95,6 +120,25 @@ library IexecLibCore_v5
 		bytes32   resultDigest;
 		bytes     results;
 		uint256   resultsTimestamp;
+		bytes     resultsCallback; // Expansion - result separation
+	}
+
+	struct ProxyTask
+	{
+		TaskStatusEnum status; //ORV
+		bytes32   dealid; //ORV
+		uint256   idx; //Traceability
+		//uint256   timeref;
+		//uint256   contributionDeadline;
+		//uint256   revealDeadline;
+		//uint256   finalDeadline;
+		bytes32   consensusValue;
+		//uint256   revealCounter;
+		//uint256   winnerCounter;
+		address[] contributors;
+		bytes32   resultDigest;
+		bytes     results;
+		//uint256   resultsTimestamp; //Unused ??
 		bytes     resultsCallback; // Expansion - result separation
 	}
 

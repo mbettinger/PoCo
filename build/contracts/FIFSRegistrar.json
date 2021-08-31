@@ -2017,8 +2017,8 @@
     "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2020-11-04T15:03:31.928Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-08-31T16:43:01.232Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {
