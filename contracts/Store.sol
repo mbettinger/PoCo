@@ -77,9 +77,6 @@ abstract contract Store is ERC1538Store
 	mapping(bytes32 => mapping(address => IexecLibCore_v5.Contribution)) internal m_contributions; // per task-worker
 	mapping(address =>                    uint256                      ) internal m_workerScores;  // per worker
 
-	mapping(bytes32 =>                    IexecLibCore_v5.ProxyDeal         ) internal m_proxydeals;         // per deal
-	mapping(bytes32 =>                    IexecLibCore_v5.ProxyTask         ) internal m_proxytasks;         // per task
-	
 	// Poco - Settings
 	address internal m_teebroker;
 	uint256 internal m_callbackgas;

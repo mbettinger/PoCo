@@ -41,24 +41,25 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		// Retrieve or generate container objects for ProxyDeal/Task and Contribution
 		bytes32 taskid=keccak256(abi.encodePacked(_inTask.dealid, _inTask.idx));
 		IexecLibCore_v5.ProxyTask         storage stoTask         = m_proxytasks[taskid];
-		IexecLibCore_v5.Contribution storage contribution = m_contributions[taskid][_msgSender()];
+		//IexecLibCore_v5.Contribution storage contribution = m_contributions[taskid][_msgSender()];
 		IexecLibCore_v5.ProxyDeal         storage  stoDeal         = m_proxydeals[_inTask.dealid];
 		
 		// Verify that there is no overwrite
-		require(stoTask.status==IexecLibCore_v5.TaskStatusEnum.UNSET, "Proxy task already exists");
+		//require(stoTask.status==IexecLibCore_v5.TaskStatusEnum.UNSET, "Proxy task already exists");
+		require(stoTask.dealid==bytes32(0x00), "Proxy task already exists");
 		// Proxy Sanity checks
-		require(_inTask.status==IexecLibCore_v5.TaskStatusEnum.ACTIVE);
+		//require(_inTask.status==IexecLibCore_v5.TaskStatusEnum.ACTIVE,"INACTIVE"); // No status bc always COMPLETED
 		
 		bytes32 resultHash = keccak256(abi.encodePacked(              taskid, _inTask.resultDigest));
 		bytes32 resultSeal = keccak256(abi.encodePacked(_msgSender(), taskid, _inTask.resultDigest));
 
-		//require((deal.callback == address(0) && _resultsCallback.length == 0) || keccak256(_resultsCallback) == task.resultDigest);
+		require((_inDeal.callback == address(0) && _inTask.resultsCallback.length == 0) || keccak256(_inTask.resultsCallback) == _inTask.resultDigest, "Callback error");
 
 		// need enclave challenge if tag is set
-		require(_enclaveChallenge != address(0) || (_inDeal.tag[31] & 0x01 == 0));
+		require(_enclaveChallenge != address(0) || (_inDeal.tag[31] & 0x01 == 0),"Not TEE");
 
 		// Check that the worker + taskid + enclave combo is authorized to contribute (scheduler signature)
-		require(_checkSignature(
+		_checkSignature(
 			( _enclaveChallenge != address(0) && m_teebroker != address(0) ) ? m_teebroker : _inDeal.workerpool.owner,
 			_toEthSignedMessage(keccak256(abi.encodePacked(
 				_msgSender(),
@@ -66,33 +67,35 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 				_enclaveChallenge
 			))),
 			_authorizationSign
-		));
+		);
 
 		// Check enclave signature
-		require(_enclaveChallenge == address(0) || _checkSignature(
+		_enclaveChallenge == address(0) || _checkSignature(
 			_enclaveChallenge,
 			_toEthSignedMessage(keccak256(abi.encodePacked(
 				resultHash,
 				resultSeal
 			))),
 			_enclaveSign
-		));
+		);
 		
 		// Proxy Storage
-		contribution.status           = IexecLibCore_v5.ContributionStatusEnum.PROVED;
-		contribution.resultHash       = resultHash;
-		contribution.resultSeal       = resultSeal;
-		contribution.enclaveChallenge = _enclaveChallenge;
+		//contribution.status           = IexecLibCore_v5.ContributionStatusEnum.PROVED;
+		//contribution.resultHash       = resultHash;
+		//contribution.resultSeal       = resultSeal;
+		//contribution.enclaveChallenge = _enclaveChallenge;
 
-		stoTask.status                   = IexecLibCore_v5.TaskStatusEnum.COMPLETED;
-		stoTask.consensusValue           = contribution.resultHash;
+		stoTask.dealid             = _inTask.dealid;
+		stoTask.idx             = _inTask.idx;
+		//stoTask.status                   = IexecLibCore_v5.TaskStatusEnum.COMPLETED;
+		//stoTask.consensusValue           = contribution.resultHash;
 		//task.revealDeadline           = task.timeref.mul(REVEAL_DEADLINE_RATIO).add(now);
 		//task.revealCounter            = 1;
 		//task.winnerCounter            = 1;
-		stoTask.resultDigest             = _inTask.resultDigest;
+		//stoTask.resultDigest             = _inTask.resultDigest;
 		stoTask.results                  = _inTask.results;
 		stoTask.resultsCallback          = _inTask.resultsCallback; // Expansion - result separation
-		stoTask.contributors.push(_msgSender());
+		//stoTask.contributors.push(_msgSender());
 		
 		stoDeal.chain=_inDeal.chain;
 	    stoDeal.sourceHub=_inDeal.sourceHub;
@@ -101,7 +104,44 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		stoDeal.workerpool=_inDeal.workerpool;
 		stoDeal.trust=_inDeal.trust;
 		stoDeal.tag=_inDeal.tag;
-		
+		stoDeal.callback=_inDeal.callback;
+
 		// Events
+		emit TaskFinalize(taskid, _inTask.results);
+
+		//executeCallback(taskid, _inTask.resultsCallback);
+	}
+
+	/**
+	 * Callback for smartcontracts using EIP1154
+	 */
+	function executeCallback(bytes32 _taskid, bytes memory _resultsCallback)
+	internal
+	{
+		address target = m_proxydeals[m_proxytasks[_taskid].dealid].callback;
+		if (target != address(0))
+		{
+			// Solidity 0.6.0 reverts if target is not a smartcontracts
+			// /**
+			//  * Call does not revert if the target smart contract is incompatible or reverts
+			//  * Solidity 0.6.0 update. Check hit history for 0.5.0 implementation.
+			//  */
+			// try IOracleConsumer(target).receiveResult{gas: m_callbackgas}(_taskid, _results)
+			// {
+			// 	// Callback success, do nothing
+			// }
+			// catch (bytes memory /*lowLevelData*/)
+			// {
+			// 	// Check gas: https://ronan.eth.link/blog/ethereum-gas-dangers/
+			// 	assert(gasleft() > m_callbackgas / 63); // no need for safemath here
+			// }
+
+			// Pre solidity 0.6.0 version
+			(bool success, bytes memory returndata) = target.call{gas: 200000}(abi.encodeWithSignature("receiveResult(bytes32,bytes)", _taskid, _resultsCallback));
+			assert(gasleft() > m_callbackgas / 63);
+			// silent unused variable warning
+			success;
+			returndata;
+		}
 	}
 }

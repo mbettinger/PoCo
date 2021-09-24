@@ -18,15 +18,19 @@
 
 pragma solidity ^0.6.0;
 
-import "@iexec/solidity/contracts/ERC1538/ERC1538Module.sol";
-import "../Store2.sol";
+import "./Store.sol";
 
+/****************************************************************************
+ * WARNING: Be carefull when editing this file.                             *
+ *                                                                          *
+ * If you want add new variables for expanded features, add them at the     *
+ * end, or (better?) create a Store_v2 that inherits from this Store.       *
+ *                                                                          *
+ * If in doubt, read about ERC1538 memory store.                            *
+ ****************************************************************************/
 
-abstract contract DelegateBase is Store2, ERC1538Module
+abstract contract Store2 is Store
 {
-	modifier onlyScheduler(bytes32 _taskid)
-	{
-		require(_msgSender() == m_deals[m_tasks[_taskid].dealid].workerpool.owner);
-		_;
-	}
+	mapping(bytes32 =>                    IexecLibCore_v5.ProxyDeal         ) internal m_proxydeals;         // per deal
+	mapping(bytes32 =>                    IexecLibCore_v5.ProxyTask         ) internal m_proxytasks;         // per task
 }

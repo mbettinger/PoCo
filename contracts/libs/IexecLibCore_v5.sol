@@ -73,8 +73,8 @@ library IexecLibCore_v5
 	    uint256 chain; //Traceability
 	    address sourceHub; //Traceability
 		// Ressources
-		Resource app; //ORV
-		Resource dataset; //ORV
+		address app; //ORV
+		address dataset; //ORV
 		Resource workerpool; //ORV
 		uint256 trust; //ORV
 		//uint256 category;
@@ -82,7 +82,7 @@ library IexecLibCore_v5
 		// execution details
 		//address requester;
 		//address beneficiary;
-		//address callback;
+		address callback;
 		//string  params;
 		// execution settings
 		//uint256 startTime;
@@ -125,17 +125,17 @@ library IexecLibCore_v5
 
 	struct ProxyTask
 	{
-		TaskStatusEnum status; //ORV
+		//TaskStatusEnum status; //ORV
 		bytes32   dealid; //ORV
 		uint256   idx; //Traceability
 		//uint256   timeref;
 		//uint256   contributionDeadline;
 		//uint256   revealDeadline;
 		//uint256   finalDeadline;
-		bytes32   consensusValue;
+		//bytes32   consensusValue;
 		//uint256   revealCounter;
 		//uint256   winnerCounter;
-		address[] contributors;
+		//address[] contributors;
 		bytes32   resultDigest;
 		bytes     results;
 		//uint256   resultsTimestamp; //Unused ??
