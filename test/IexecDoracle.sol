@@ -56,8 +56,8 @@ contract IexecDoracle
 	function _iexecDoracleGetResults(bytes32 _doracleCallId)
 	public view returns (bool, bytes memory, string memory)
 	{
-		IexecLibCore_v5.ProxyTask memory task = iexecproxy.viewTask(_doracleCallId);
-		IexecLibCore_v5.ProxyDeal memory deal = iexecproxy.viewDeal(task.dealid);
+		IexecLibCore_v5.ProxyTask memory task = iexecproxy.viewProxyTask(_doracleCallId);
+		IexecLibCore_v5.ProxyDeal memory deal = iexecproxy.viewProxyDeal(task.dealid);
 
 		//if (task.status   != IexecLibCore_v5.TaskStatusEnum.COMPLETED                                                  ) { return (false, task.resultsCallback, "result-not-available"   );  }
 		if (m_authorizedApp        != address(0) && !_checkIdentity(m_authorizedApp,        deal.app,        4)) { return (false, task.resultsCallback, "unauthorized-app"       );  }

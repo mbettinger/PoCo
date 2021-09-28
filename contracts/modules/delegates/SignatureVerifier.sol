@@ -72,7 +72,7 @@ contract SignatureVerifier is DelegateBase
 		}
 		else
 		{
-			//revert('invalid-signature-format');
+			revert('invalid-signature-format');
 		}
 
 		if (v < 27) v += 27;

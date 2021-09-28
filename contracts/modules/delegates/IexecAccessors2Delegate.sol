@@ -19,25 +19,22 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "../../libs/IexecLibCore_v5.sol";
+import "../DelegateBase.sol";
+import "../interfaces/IexecAccessors2.sol";
 
-interface IexecPoco3
+
+contract IexecAccessorsDelegate2 is IexecAccessors2, DelegateBase
 {
-	event Reward(address owner, uint256 amount, bytes32 ref);
-	event Seize (address owner, uint256 amount, bytes32 ref);
-	event Lock  (address owner, uint256 amount);
-	event Unlock(address owner, uint256 amount);
+	function viewProxyDeal(bytes32 _id)
+	external view override returns (IexecLibCore_v5.ProxyDeal memory deal)
+	{
+		return m_proxydeals[_id];
+	}
 
-	event AccurateContribution(address indexed worker, bytes32 indexed taskid);
-	event FaultyContribution  (address indexed worker, bytes32 indexed taskid);
+	function viewProxyTask(bytes32 _taskid)
+	external view override returns (IexecLibCore_v5.ProxyTask memory)
+	{
+		return m_proxytasks[_taskid];
+	}
 
-	event TaskInitialize(bytes32 indexed taskid, address indexed workerpool);
-	event TaskContribute(bytes32 indexed taskid, address indexed worker, bytes32 hash);
-	event TaskConsensus (bytes32 indexed taskid, bytes32 consensus);
-	event TaskReveal    (bytes32 indexed taskid, address indexed worker, bytes32 digest);
-	event TaskFinalize  (bytes32 indexed taskid, bytes results);
-	event TaskClaimed   (bytes32 indexed taskid);
-	event TaskReopen    (bytes32 indexed taskid);
-
-	function proxyInitContribAndFinalize(address worker, IexecLibCore_v5.ProxyDeal memory, IexecLibCore_v5.ProxyTask memory, address, bytes memory, bytes memory) external; // Expansion - result separation
 }

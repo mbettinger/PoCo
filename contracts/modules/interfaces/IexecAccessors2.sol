@@ -19,25 +19,12 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
+import "@iexec/solidity/contracts/ERC1154/IERC1154.sol";
 import "../../libs/IexecLibCore_v5.sol";
+import "../../registries/IRegistry.sol";
 
-interface IexecPoco3
+interface IexecAccessors2
 {
-	event Reward(address owner, uint256 amount, bytes32 ref);
-	event Seize (address owner, uint256 amount, bytes32 ref);
-	event Lock  (address owner, uint256 amount);
-	event Unlock(address owner, uint256 amount);
-
-	event AccurateContribution(address indexed worker, bytes32 indexed taskid);
-	event FaultyContribution  (address indexed worker, bytes32 indexed taskid);
-
-	event TaskInitialize(bytes32 indexed taskid, address indexed workerpool);
-	event TaskContribute(bytes32 indexed taskid, address indexed worker, bytes32 hash);
-	event TaskConsensus (bytes32 indexed taskid, bytes32 consensus);
-	event TaskReveal    (bytes32 indexed taskid, address indexed worker, bytes32 digest);
-	event TaskFinalize  (bytes32 indexed taskid, bytes results);
-	event TaskClaimed   (bytes32 indexed taskid);
-	event TaskReopen    (bytes32 indexed taskid);
-
-	function proxyInitContribAndFinalize(address worker, IexecLibCore_v5.ProxyDeal memory, IexecLibCore_v5.ProxyTask memory, address, bytes memory, bytes memory) external; // Expansion - result separation
+	function viewProxyDeal(bytes32) external view returns (IexecLibCore_v5.ProxyDeal memory);
+	function viewProxyTask(bytes32) external view returns (IexecLibCore_v5.ProxyTask memory);
 }

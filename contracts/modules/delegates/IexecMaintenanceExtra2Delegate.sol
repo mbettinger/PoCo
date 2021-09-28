@@ -19,25 +19,20 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import "../../libs/IexecLibCore_v5.sol";
+import "../DelegateBase.sol";
+import "../interfaces/IexecMaintenanceExtra.sol";
 
-interface IexecPoco3
+
+contract IexecMaintenanceExtra2Delegate is IexecMaintenanceExtra, DelegateBase
 {
-	event Reward(address owner, uint256 amount, bytes32 ref);
-	event Seize (address owner, uint256 amount, bytes32 ref);
-	event Lock  (address owner, uint256 amount);
-	event Unlock(address owner, uint256 amount);
-
-	event AccurateContribution(address indexed worker, bytes32 indexed taskid);
-	event FaultyContribution  (address indexed worker, bytes32 indexed taskid);
-
-	event TaskInitialize(bytes32 indexed taskid, address indexed workerpool);
-	event TaskContribute(bytes32 indexed taskid, address indexed worker, bytes32 hash);
-	event TaskConsensus (bytes32 indexed taskid, bytes32 consensus);
-	event TaskReveal    (bytes32 indexed taskid, address indexed worker, bytes32 digest);
-	event TaskFinalize  (bytes32 indexed taskid, bytes results);
-	event TaskClaimed   (bytes32 indexed taskid);
-	event TaskReopen    (bytes32 indexed taskid);
-
-	function proxyInitContribAndFinalize(address worker, IexecLibCore_v5.ProxyDeal memory, IexecLibCore_v5.ProxyTask memory, address, bytes memory, bytes memory) external; // Expansion - result separation
+	function changeRegistries(
+		address _appregistryAddress,
+		address _datasetregistryAddress,
+		address _workerpoolregistryAddress)
+	external override
+	{
+		m_appregistry        = IRegistry(_appregistryAddress);
+		m_datasetregistry    = IRegistry(_datasetregistryAddress);
+		m_workerpoolregistry = IRegistry(_workerpoolregistryAddress);
+	}
 }

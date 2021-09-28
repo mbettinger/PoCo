@@ -28,7 +28,7 @@ import "../interfaces/IexecPoco3.sol";
 
 contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, SignatureVerifier
 {
-	function proxyInitContribAndFinalize(
+	function proxyInitContribAndFinalize(address worker,
 	    IexecLibCore_v5.ProxyDeal memory _inDeal,
 		IexecLibCore_v5.ProxyTask memory _inTask,
 		address      _enclaveChallenge,
@@ -36,7 +36,7 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		bytes memory _authorizationSign)
 	override external
 	{
-		require(_isAuthorized(_msgSender()));
+		require(_isAuthorized(worker));//_msgSender()
 		
 		// Retrieve or generate container objects for ProxyDeal/Task and Contribution
 		bytes32 taskid=keccak256(abi.encodePacked(_inTask.dealid, _inTask.idx));
@@ -46,38 +46,56 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		
 		// Verify that there is no overwrite
 		//require(stoTask.status==IexecLibCore_v5.TaskStatusEnum.UNSET, "Proxy task already exists");
+		require(stoDeal.sourceHub==address(0x00) || 
+			(
+				stoDeal.sourceHub == _inDeal.sourceHub &&
+				stoDeal.chain ==_inDeal.chain &&
+				stoDeal.app == _inDeal.app &&
+				stoDeal.dataset ==_inDeal.dataset &&
+				stoDeal.workerpool.pointer == _inDeal.workerpool.pointer &&
+				stoDeal.workerpool.owner == _inDeal.workerpool.owner &&
+				stoDeal.workerpool.price == _inDeal.workerpool.price &&
+				stoDeal.trust ==_inDeal.trust &&
+				stoDeal.tag ==_inDeal.tag &&
+				stoDeal.callback ==_inDeal.callback
+			)
+			, "Proxy deal already exists and is different from submitted one");
 		require(stoTask.dealid==bytes32(0x00), "Proxy task already exists");
+		
 		// Proxy Sanity checks
+		require(m_workerpoolregistry.isRegistered(_inDeal.workerpool.pointer), "Unregistered workerpool");
+		require(_inDeal.workerpool.owner == Workerpool(_inDeal.workerpool.pointer).owner(), "Not rightful workerpool owner");
+
 		//require(_inTask.status==IexecLibCore_v5.TaskStatusEnum.ACTIVE,"INACTIVE"); // No status bc always COMPLETED
 		
 		bytes32 resultHash = keccak256(abi.encodePacked(              taskid, _inTask.resultDigest));
-		bytes32 resultSeal = keccak256(abi.encodePacked(_msgSender(), taskid, _inTask.resultDigest));
+		bytes32 resultSeal = keccak256(abi.encodePacked(worker, taskid, _inTask.resultDigest));
 
-		require((_inDeal.callback == address(0) && _inTask.resultsCallback.length == 0) || keccak256(_inTask.resultsCallback) == _inTask.resultDigest, "Callback error");
+		//require((_inDeal.callback == address(0) && _inTask.resultsCallback.length == 0) || keccak256(_inTask.resultsCallback) == _inTask.resultDigest, "Callback error");
 
-		// need enclave challenge if tag is set
-		require(_enclaveChallenge != address(0) || (_inDeal.tag[31] & 0x01 == 0),"Not TEE");
+		// need enclave challenge and tee tag set
+		require(_enclaveChallenge != address(0) && (_inDeal.tag[31] & 0x01 == 0x01),"Not TEE");
 
 		// Check that the worker + taskid + enclave combo is authorized to contribute (scheduler signature)
-		_checkSignature(
+		require(_checkSignature(
 			( _enclaveChallenge != address(0) && m_teebroker != address(0) ) ? m_teebroker : _inDeal.workerpool.owner,
 			_toEthSignedMessage(keccak256(abi.encodePacked(
-				_msgSender(),
+				worker,//_msgSender()
 				taskid,
 				_enclaveChallenge
 			))),
 			_authorizationSign
-		);
+		),"Invalid auth signature");
 
 		// Check enclave signature
-		_enclaveChallenge == address(0) || _checkSignature(
+		require(_checkSignature(
 			_enclaveChallenge,
 			_toEthSignedMessage(keccak256(abi.encodePacked(
 				resultHash,
 				resultSeal
 			))),
 			_enclaveSign
-		);
+		),"Invalid enclave signature");
 		
 		// Proxy Storage
 		//contribution.status           = IexecLibCore_v5.ContributionStatusEnum.PROVED;
@@ -92,7 +110,7 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		//task.revealDeadline           = task.timeref.mul(REVEAL_DEADLINE_RATIO).add(now);
 		//task.revealCounter            = 1;
 		//task.winnerCounter            = 1;
-		//stoTask.resultDigest             = _inTask.resultDigest;
+        stoTask.resultDigest             = _inTask.resultDigest;
 		stoTask.results                  = _inTask.results;
 		stoTask.resultsCallback          = _inTask.resultsCallback; // Expansion - result separation
 		//stoTask.contributors.push(_msgSender());
@@ -109,7 +127,7 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 		// Events
 		emit TaskFinalize(taskid, _inTask.results);
 
-		//executeCallback(taskid, _inTask.resultsCallback);
+		executeCallback(taskid, _inTask.resultsCallback);
 	}
 
 	/**

@@ -2,11 +2,16 @@ pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
 import "../contracts/libs/IexecLibCore_v5.sol";
-
-contract Impersonator
+import "../contracts/modules/interfaces/IexecAccessors2.sol";
+import "../contracts/modules/delegates/IexecPoco3Delegate.sol";
+import "../contracts/modules/delegates/IexecMaintenanceExtra2Delegate.sol";
+contract Impersonator is IexecAccessors2, IexecPoco3Delegate, IexecMaintenanceExtra2Delegate
 {
-	function viewDeal(bytes32 _dealid) pure public returns (IexecLibCore_v5.ProxyDeal memory){
-	    bytes memory callback=abi.encode(uint256(1631029502),string("BTC-USD-9-2021-09-06"),int256(52668621800000));
+	function viewProxyDeal(bytes32 _dealid) override view public returns (IexecLibCore_v5.ProxyDeal memory){
+	    
+	    return m_proxydeals[_dealid];
+	    
+	    /*bytes memory callback=abi.encode(uint256(1631029502),string("BTC-USD-9-2021-09-06"),int256(52668621800000));
         bytes32 resultsDigest=keccak256(callback);
 	    return IexecLibCore_v5.ProxyDeal(133,
             address(0x3eca1B216A7DF1C7689aEb259fFB83ADFB894E7f),
@@ -18,10 +23,13 @@ contract Impersonator
             1,
             bytes32(0x0000000000000000000000000000000000000000000000000000000000000001),
             address(0x01)
-            );
+            );*/
 	}
 	
-	function viewTask(bytes32 _taskid) pure public returns (IexecLibCore_v5.ProxyTask memory){
+	function viewProxyTask(bytes32 _taskid) override view public returns (IexecLibCore_v5.ProxyTask memory){
+	    
+	    return m_proxytasks[_taskid];
+	    /*
 	    bytes memory callback=abi.encode(uint256(1631029502),string("BTC-USD-9-2021-09-06"),int256(52668621800000));
         bytes32 resultsDigest=keccak256(callback);
 	    return IexecLibCore_v5.ProxyTask(bytes32(0x6aa5b7cb91a8ebc62041eb8be82eb273cbe8a0f48a4c60b7f181760b8f2417a3),
@@ -29,5 +37,6 @@ contract Impersonator
                 		bytes32(resultsDigest),
                 		bytes("{\"storage\":\"ipfs\",\"location\":\"/ipfs/QmRjxRrFkgtB8sM7e4b8ZKqLXiK8NWhpnQLkn1bGii2NWE\"}"),
                 		callback);
+        */
 	}
 }
