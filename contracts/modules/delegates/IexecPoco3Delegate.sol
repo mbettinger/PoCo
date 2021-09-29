@@ -87,15 +87,38 @@ contract IexecPoco3Delegate is IexecPoco3, DelegateBase, IexecERC20Core, Signatu
 			_authorizationSign
 		),"Invalid auth signature");
 
+		//Tree-like encoding because of stack too deep error
+        bytes memory encoded = abi.encodePacked(abi.encodePacked(
+				/*resultHash,
+				resultSeal*/
+				_inTask.dealid,
+        		_inTask.idx,
+                _inTask.resultDigest,
+        		_inTask.results,
+        		_inTask.resultsCallback),
+        		abi.encodePacked(
+        		_inDeal.chain,
+        	    _inDeal.sourceHub,
+        		_inDeal.app,
+        		_inDeal.dataset),
+        		abi.encodePacked(
+        		_inDeal.workerpool.pointer,
+        		_inDeal.workerpool.owner,
+        		_inDeal.workerpool.price),
+        		abi.encodePacked(
+        		_inDeal.trust,
+        		_inDeal.tag,
+        		_inDeal.callback
+			));
+
 		// Check enclave signature
-		require(_checkSignature(
+		//require(
+		    _checkSignature(
 			_enclaveChallenge,
-			_toEthSignedMessage(keccak256(abi.encodePacked(
-				resultHash,
-				resultSeal
-			))),
+			_toEthSignedMessage(keccak256(encoded)),
 			_enclaveSign
-		),"Invalid enclave signature");
+		);
+		//,"Invalid enclave signature");
 		
 		// Proxy Storage
 		//contribution.status           = IexecLibCore_v5.ContributionStatusEnum.PROVED;
